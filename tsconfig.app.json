@@ -12,6 +12,7 @@
       "@shared/*": ["shared/*"],
       "@core/*": ["core/*"],
       "@pages/*": ["pages/*"],
+      "@assets/*": ["assets/*"],
       "@api/*": ["api/*"],
     },
 
