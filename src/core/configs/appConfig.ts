@@ -1,3 +1,5 @@
+import type { AppConfig } from "@shared/types/appConfig";
+
 const requiredEnvVars = ["VITE_BACKEND_URL"];
 const missingEnvVars = requiredEnvVars.filter((envVar) => !import.meta.env[envVar]);
 
@@ -5,17 +7,21 @@ if (missingEnvVars.length > 0) {
   throw new Error(`Missing required environment variables: ${missingEnvVars.join(", ")}`);
 }
 
-export const appConfig = {
+export const appConfig: AppConfig = {
+	api: {
+		baseURL: import.meta.env.VITE_BACKEND_URL,
+		timeout: 10000,
+	},
+	routes: {
+		login: "/login",
+		home: "/",
+	},
   auth: {
-    storageKey: "tglab-frontend-challenge-token",
+    storageKey: "tg:authToken",
     tokenKey: "token",
   },
-  api: {
-    baseURL: import.meta.env.VITE_BACKEND_URL,
-    timeout: 10000,
-  },
-  routes: {
-    login: "/login",
-    home: "/",
-  },
+	theme:{
+		storageKey: "tg:themeMode",
+		default: "system"
+	},
 };

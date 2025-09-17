@@ -135,8 +135,12 @@ export const GlobalStyle = createGlobalStyle`
 	body {
 		font-family: 'Robert Sans', Arial, sans-serif;
 		font-weight: 400;
-		background-color: #ffffff;
-		color: #000000;
+    background-color: ${({ theme }) => theme.background};
+    color: ${({ theme }) => theme.text.primary};
+	}
+
+	a, button {
+		cursor: pointer;
 	}
 
 	a {

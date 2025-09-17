@@ -1,15 +1,12 @@
-import logo from "@assets/images/svg/logo-full.svg";
+
 import { AppProvider } from "@core/providers";
+import { Login } from "@pages/auth/login";
 
 export function App() {
-  return (
+
+	return (
     <AppProvider>
-
-			<img src={logo} alt="TGLab Logo" />
-
-      <p>
-        Hello World!
-      </p>
+			<Login />
     </AppProvider>
   )
 }
