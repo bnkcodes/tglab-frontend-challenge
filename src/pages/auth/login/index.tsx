@@ -8,7 +8,8 @@ export function Login() {
 	return (
 		<>
 			<PublicLayout>
-				<h1>{t('hello')}</h1>
+				<h1>{t('login')}</h1>
+
 			</PublicLayout>
 		</>
 	);

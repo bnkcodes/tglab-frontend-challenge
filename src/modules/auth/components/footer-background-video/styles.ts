@@ -8,6 +8,7 @@ export const FooterVideoWrapper = styled.footer`
   width: 100%;
   height: 100%;
 	max-height: 50vh;
+	z-index: -1;
 `;
 
 export const BgVideo = styled.video`
@@ -16,7 +17,6 @@ export const BgVideo = styled.video`
   width: 100%;
   height: 100%;
   object-fit: cover;
-  z-index: 0;
 `;
 
 export const LoopingVideoBgOverlay = styled.div`
@@ -24,7 +24,6 @@ export const LoopingVideoBgOverlay = styled.div`
   inset: 0;
   width: 100%;
   height: auto;
-	z-index: 1;
 
   background: ${({ theme }) =>
     `linear-gradient(

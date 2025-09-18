@@ -1,3 +1,10 @@
 {
-	"hello": "Hello World"
+	"login": "Login",
+	"name": "Name",
+	"email": "Email",
+	"password": "Password",
+	"confirmPassword": "Confirm Password",
+	"createAccount": "Create Account",
+	"haveAccount": "Already have an account?",
+	"register": "Register"
 }

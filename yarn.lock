@@ -2422,6 +2422,11 @@ react-dom@^19.1.1:
   dependencies:
     scheduler "^0.26.0"
 
+react-hook-form@^7.62.0:
+  version "7.62.0"
+  resolved "https://registry.yarnpkg.com/react-hook-form/-/react-hook-form-7.62.0.tgz#2d81e13c2c6b6d636548e440818341ca753218d0"
+  integrity sha512-7KWFejc98xqG/F4bAxpL41NB3o1nnvQO1RWZT3TqRZYL8RryQETGfEdVnJN2fy1crCiBLLjkRBVK05j24FxJGA==
+
 react-i18next@^15.7.3:
   version "15.7.3"
   resolved "https://registry.yarnpkg.com/react-i18next/-/react-i18next-15.7.3.tgz#2eba235247dff0cbf9f0338e2ab85e10e127aa54"
@@ -2453,6 +2458,11 @@ react-remove-scroll@^2.6.3:
     tslib "^2.1.0"
     use-callback-ref "^1.3.3"
     use-sidecar "^1.1.3"
+
+react-spinners@^0.17.0:
+  version "0.17.0"
+  resolved "https://registry.yarnpkg.com/react-spinners/-/react-spinners-0.17.0.tgz#d518913e2192afaae76c5b781929ea3bd7b1910e"
+  integrity sha512-L/8HTylaBmIWwQzIjMq+0vyaRXuoAevzWoD35wKpNTxxtYXWZp+xtgkfD7Y4WItuX0YvdxMPU79+7VhhmbmuTQ==
 
 react-style-singleton@^2.2.2, react-style-singleton@^2.2.3:
   version "2.2.3"

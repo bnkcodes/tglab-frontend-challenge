@@ -18,7 +18,9 @@
     "radix-ui": "^1.4.3",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
+    "react-hook-form": "^7.62.0",
     "react-i18next": "^15.7.3",
+    "react-spinners": "^0.17.0",
     "react-toastify": "^11.0.5",
     "styled-components": "^6.1.19",
     "vite-tsconfig-paths": "^5.1.4"

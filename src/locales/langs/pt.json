@@ -1,3 +1,10 @@
 {
-	"hello": "Olá Mundo"
+	"login": "Entrar",
+	"name": "Nome",
+	"email": "Email",
+	"password": "Senha",
+	"confirmPassword": "Confirmar senha",
+	"createAccount": "Criar conta",
+	"haveAccount": "Já possui uma conta?",
+	"register": "Registrar"
 }
