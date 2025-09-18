@@ -1,4 +1,5 @@
 import type { PropsWithChildren } from "react";
+import { Outlet } from 'react-router-dom';
 
 import { Container, Header } from "@shared/components";
 
@@ -13,7 +14,7 @@ export function PublicLayout({ children }: PropsWithChildren) {
 
 				<Content>
 					<Card>
-						{children}
+						{children ?? <Outlet />}
 					</Card>
 				</Content>
 			</Container>

@@ -5,16 +5,25 @@ import { GlobalStyle } from "@core/styles"
 
 import { ThemeModeProvider } from "./ThemeModeProvider"
 import { LocaleProvider } from "./LocaleProvider"
+import { ReduxProvider } from "./ReduxProvider"
+import { AuthProvider } from "./AuthProvider"
+import { ReactQueryProvider } from "./ReactQueryProvider";
 
 export function AppProvider({ children }: PropsWithChildren) {
   return (
-		<LocaleProvider>
-			<Theme>
-				<ThemeModeProvider>
-					<GlobalStyle />
-					{children}
-				</ThemeModeProvider>
-			</Theme>
-		</LocaleProvider>
+		<ReactQueryProvider>
+			<ReduxProvider>
+				<LocaleProvider>
+					<Theme>
+						<ThemeModeProvider>
+							<AuthProvider>
+								<GlobalStyle />
+								{children}
+							</AuthProvider>
+						</ThemeModeProvider>
+					</Theme>
+				</LocaleProvider>
+			</ReduxProvider>
+		</ReactQueryProvider>
   )
 }
