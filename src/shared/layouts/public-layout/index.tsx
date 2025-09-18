@@ -1,11 +1,18 @@
 import type { PropsWithChildren } from "react";
 
-import { Container } from "@shared/components";
+import { Container, Header } from "@shared/components";
+
+import { LoopingVideoBg } from "@modules/auth/components";
 
 export function PublicLayout({ children }: PropsWithChildren) {
 	return (
-		<Container>
-			{children}
-		</Container>
+		<>
+			<Container>
+				<Header />
+				{children}
+			</Container>
+
+			<LoopingVideoBg />
+		</>
 	);
 }

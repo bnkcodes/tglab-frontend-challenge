@@ -7,5 +7,5 @@ export const Box = styled.div<{ $size: number }>`
   line-height: 0;
   width: ${({ $size }) => `${$size}px`};
   height: ${({ $size }) => `${$size}px`};
-  color: inherit;
+  color: ${({ theme }) => theme.text.primary};
 `;

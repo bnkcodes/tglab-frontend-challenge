@@ -1,3 +1,4 @@
+import "@radix-ui/themes/styles.css";
 import 'locales/i18n'
 
 import { AppProvider } from "@core/providers";

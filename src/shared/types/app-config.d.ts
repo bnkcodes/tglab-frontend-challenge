@@ -20,4 +20,7 @@ export type AppConfig = {
 	i18n: {
 		storageKey: string;
 	},
+	header: {
+		height: number;
+	}
 };

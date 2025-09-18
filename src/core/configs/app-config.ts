@@ -27,4 +27,7 @@ export const appConfig: AppConfig = {
 	i18n: {
 		storageKey: "tg:i18nextLng"
 	},
+	header: {
+		height: 86,
+	}
 };
