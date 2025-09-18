@@ -135,16 +135,21 @@ export const GlobalStyle = createGlobalStyle`
 	body {
 		font-family: 'Robert Sans', Arial, sans-serif;
 		font-weight: 400;
-    background-color: ${({ theme }) => theme.background};
+    background-color: ${({ theme }) => theme.background.base};
     color: ${({ theme }) => theme.text.primary};
 	}
 
 	a, button {
+		color: inherit;
 		cursor: pointer;
 	}
 
 	a {
 		text-decoration: none;
-		color: inherit;
+	}
+
+	button {
+		border: none;
+		background: none;
 	}
 `;

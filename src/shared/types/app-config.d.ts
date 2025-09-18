@@ -17,4 +17,7 @@ export type AppConfig = {
 		storageKey: string;
 		default: ThemeMode;
 	};
+	i18n: {
+		storageKey: string;
+	},
 };

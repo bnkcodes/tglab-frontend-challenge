@@ -1,33 +1,56 @@
 import type { DefaultTheme } from "styled-components";
 
 export const lightTheme: DefaultTheme = {
-  background: "#ffffff",
+  background: {
+    base: "#ffffff",
+    surface: "#f9f9f9",
+    overlay: "#ffffffcc",
+  },
 
   text: {
     primary: "#000000",
-    secondary: "#abb8c3",
+    secondary: "#bbd0cf",
     muted: "#d1d5db",
     invert: "#ffffff",
   },
 
-  brand: "#25a69c",
+  brand: {
+    primary: "#25a69c",
+    secondary: "#063330",
+  },
 
   button: {
     primary: {
-      bg: "#d0dfdc",
-      text: "#202f2e",
-      hoverBg: "#063330",
-      hoverText: "#ffffff",
+      text: "#ffffff",
+      bg: "#000000",
+			border: "#000000",
+      hover: {
+        text: "#ffffff",
+        bg: "#063330",
+				border: "#063330",
+      },
+    },
+    secondary: {
+			text: "#000000",
+      bg: "#d0dfde",
+      border: "#d0dfde",
+      hover: {
+       	bg: "#063330",
+				border: "#063330",
+        text: "#ffffff",
+      },
     },
   },
 
-  colors: {
+  feedback: {
     success: "#7bdcb5",
     info: "#0693e3",
     warning: "#ff9f43",
     danger: "#cf2e2e",
+  },
+
+  palette: {
     purple: "#9b51e0",
     amber: "#fcb900",
   },
 };
-

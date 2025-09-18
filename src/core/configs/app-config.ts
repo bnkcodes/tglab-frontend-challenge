@@ -1,4 +1,4 @@
-import type { AppConfig } from "@shared/types/appConfig";
+import type { AppConfig } from "@shared/types";
 
 const requiredEnvVars = ["VITE_BACKEND_URL"];
 const missingEnvVars = requiredEnvVars.filter((envVar) => !import.meta.env[envVar]);
@@ -23,5 +23,8 @@ export const appConfig: AppConfig = {
 	theme:{
 		storageKey: "tg:themeMode",
 		default: "system"
+	},
+	i18n: {
+		storageKey: "tg:i18nextLng"
 	},
 };

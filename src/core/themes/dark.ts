@@ -1,31 +1,55 @@
 import type { DefaultTheme } from "styled-components";
 
 export const darkTheme: DefaultTheme = {
-  background: "#0f1112",
+  background: {
+    base: "#0f1112",
+    surface: "#1a1d1f",
+    overlay: "#0f1112cc",
+  },
 
   text: {
     primary: "#ffffff",
-    secondary: "#bdc0c5",
+    secondary: "#bbd0cf",
     muted: "#7d8289",
     invert: "#000000",
   },
 
-  brand: "#25a69c",
+  brand: {
+    primary: "#25a69c",
+    secondary: "#063330",
+  },
 
   button: {
     primary: {
-      bg: "#063330",
+      bg: "#ffffff",
+      border: "#ffffff",
+      text: "#000000",
+      hover: {
+        bg: "#25a69c",
+        text: "#000000",
+				border: "#25a69c",
+      },
+    },
+    secondary: {
+      bg: "#2a2d2e",
+      border: "#3d4143",
       text: "#ffffff",
-      hoverBg: "#25a69c",
-      hoverText: "#000000",
+      hover: {
+        bg: "#35393b",
+        text: "#ffffff",
+				border: "#35393b",
+      },
     },
   },
 
-  colors: {
+  feedback: {
     success: "#7bdcb5",
     info: "#40a9f3",
     warning: "#ff9f43",
     danger: "#ff6b6b",
+  },
+
+  palette: {
     purple: "#b085f5",
     amber: "#fcd34d",
   },

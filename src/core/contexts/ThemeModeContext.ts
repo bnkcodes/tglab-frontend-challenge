@@ -2,18 +2,18 @@ import { createContext } from "react"
 
 export type ThemeMode = 'dark' | 'light' | 'system'
 
-interface ThemeModeProviderState {
+interface ThemeModeContextValue {
   mode: ThemeMode
 	resolvedMode: Omit<ThemeMode, "system">;
   toggleTheme: () => void
   setTheme: (theme: ThemeMode) => void
 }
 
-const initialState: ThemeModeProviderState = {
+const initialState: ThemeModeContextValue = {
 	mode: 'system',
 	resolvedMode: "light",
   toggleTheme: () => null,
   setTheme: () => null
 }
 
-export const ThemeModeProviderContext = createContext<ThemeModeProviderState>(initialState)
+export const ThemeModeProviderContext = createContext<ThemeModeContextValue>(initialState)

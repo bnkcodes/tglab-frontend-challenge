@@ -2,27 +2,50 @@ import "styled-components";
 
 declare module "styled-components" {
   export interface DefaultTheme {
-    background: string;
+    background: {
+      base: string;
+      surface: string;
+      overlay: string;
+    };
     text: {
       primary: string;
       secondary: string;
       muted: string;
       invert: string;
     };
-    brand: string;
+    brand: {
+      primary: string;
+      secondary: string;
+    };
     button: {
       primary: {
-        bg: string;
         text: string;
-        hoverBg: string;
-        hoverText: string;
+        bg: string;
+				border: string;
+        hover: {
+          text: string;
+          bg: string;
+          border: string;
+        };
+      };
+      secondary: {
+        text: string;
+        bg: string;
+        border: string;
+        hover: {
+          text: string;
+          bg: string;
+          border: string;
+        };
       };
     };
-    colors: {
+    feedback: {
       success: string;
       info: string;
       warning: string;
       danger: string;
+    };
+    palette: {
       purple: string;
       amber: string;
     };

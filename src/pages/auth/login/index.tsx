@@ -2,8 +2,11 @@ import { toast } from 'react-toastify';
 
 import logo from "@assets/images/svg/logo-full.svg";
 import { useThemeMode } from "@core/hooks/useThemeMode";
+import LanguageDropdown from '@shared/layouts/_common/language-popover';
+import { useLocale } from '@core/hooks/useLocale';
 
 export function Login() {
+	const { t } = useLocale();
 	const { toggleTheme, mode } = useThemeMode();
 
 	return (
@@ -32,6 +35,9 @@ export function Login() {
 				</button>
 			</div>
 
+			<LanguageDropdown />
+
+			<h1>{t('hello')}</h1>
 
 			<video
 				autoPlay
