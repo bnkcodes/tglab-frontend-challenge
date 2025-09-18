@@ -4,7 +4,7 @@ export const darkTheme: DefaultTheme = {
   background: {
     base: "#0f1112",
     surface: "#1a1d1f",
-    overlay: "#0f1112cc",
+    overlay: "#0f111299",
   },
 
   text: {

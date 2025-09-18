@@ -3,7 +3,7 @@ import { allLangs } from 'locales/config-lang';
 
 import { useLocale } from '@core/hooks/useLocale';
 
-import { Iconify } from '@shared/components/iconifly';
+import { Iconify } from '@shared/components';
 
 import { Content, Label, RadioItem, TriggerButton } from './styles';
 

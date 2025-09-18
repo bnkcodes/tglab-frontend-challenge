@@ -1,4 +1,4 @@
-import { useCallback, useMemo, useState } from "react"
+import { useCallback, useMemo, useState, type PropsWithChildren } from "react"
 import { ThemeProvider } from "styled-components";
 import { ToastContainer } from "react-toastify"
 
@@ -6,8 +6,7 @@ import { appConfig } from "@core/configs"
 import { lightTheme, darkTheme } from "@core/themes"
 import { ThemeModeProviderContext, type ThemeMode } from "@core/contexts"
 
-interface ThemeModeProviderProps {
-  children: React.ReactNode
+interface ThemeModeProviderProps extends PropsWithChildren {
   defaultMode?: ThemeMode
   storageKey?: string
 }

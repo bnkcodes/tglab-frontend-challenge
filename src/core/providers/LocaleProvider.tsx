@@ -1,14 +1,11 @@
-import { useCallback, useMemo } from "react";
+import { useCallback, useMemo, type PropsWithChildren } from "react";
 import { useTranslation } from "react-i18next";
 
-import { LocaleProviderContext } from "@core/contexts";
 import { allLangs, defaultLang } from "locales/config-lang";
 
-interface LocaleProviderProps {
-  children: React.ReactNode;
-}
+import { LocaleProviderContext } from "@core/contexts";
 
-export function LocaleProvider({ children }: LocaleProviderProps) {
+export function LocaleProvider({ children }: PropsWithChildren) {
   const { i18n, t } = useTranslation();
 
   const currentLang = useMemo(

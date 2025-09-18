@@ -7,16 +7,19 @@ declare module "styled-components" {
       surface: string;
       overlay: string;
     };
+
     text: {
       primary: string;
       secondary: string;
       muted: string;
       invert: string;
     };
+
     brand: {
       primary: string;
       secondary: string;
     };
+
     button: {
       primary: {
         text: string;
@@ -28,6 +31,7 @@ declare module "styled-components" {
           border: string;
         };
       };
+
       secondary: {
         text: string;
         bg: string;
@@ -39,12 +43,14 @@ declare module "styled-components" {
         };
       };
     };
+
     feedback: {
       success: string;
       info: string;
       warning: string;
       danger: string;
     };
+
     palette: {
       purple: string;
       amber: string;

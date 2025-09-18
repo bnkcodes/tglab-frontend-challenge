@@ -4,7 +4,7 @@ export const lightTheme: DefaultTheme = {
   background: {
     base: "#ffffff",
     surface: "#f9f9f9",
-    overlay: "#ffffffcc",
+    overlay: "#ffffff10",
   },
 
   text: {

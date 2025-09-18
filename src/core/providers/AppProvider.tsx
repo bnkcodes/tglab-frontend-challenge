@@ -1,13 +1,11 @@
+import type { PropsWithChildren } from "react"
+
 import { GlobalStyle } from "@core/styles"
 
 import { ThemeModeProvider } from "./ThemeModeProvider"
 import { LocaleProvider } from "./LocaleProvider"
 
-interface Props {
-	children: React.ReactNode
-};
-
-export function AppProvider({ children }: Props) {
+export function AppProvider({ children }: PropsWithChildren) {
   return (
 		<LocaleProvider>
 			<ThemeModeProvider>
