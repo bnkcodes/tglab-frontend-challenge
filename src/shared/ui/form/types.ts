@@ -1,6 +1,7 @@
 import { type UseFormReturn } from "react-hook-form";
 
 import type { InputProps } from "../data-entry/input/types";
+import type { SelectProps } from "../data-entry/select/types";
 
 export interface FormProps extends React.HTMLAttributes<HTMLFormElement> {
   onSubmit: (data: any) => void;
@@ -18,3 +19,4 @@ export interface FormFieldProps {
 }
 
 export type FormInputProps = InputProps & FormFieldProps;
+export type FormSelectProps = Omit<SelectProps, 'onChange'> & FormFieldProps;

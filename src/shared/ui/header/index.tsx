@@ -20,7 +20,6 @@ export const Header = () => {
 						<LanguageSelect />
 						<ThemeSwitchButton />
 					</LanguageSelectorWrapper>
-
 				</RightSection>
 			</HeaderContent>
 		</HeaderContainer>

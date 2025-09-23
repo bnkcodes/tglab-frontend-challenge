@@ -1,4 +1,3 @@
-import "@radix-ui/themes/styles.css";
 import 'locales/i18n'
 
 import { Router } from "@app/router";

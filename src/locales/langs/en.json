@@ -1,4 +1,9 @@
 {
+	"language": {
+		"es": "Spanish",
+		"en": "English",
+		"pt": "Portuguese"
+	},
 	"pages": {
 		"login": {
 			"title": "Sign In",

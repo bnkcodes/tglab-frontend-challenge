@@ -1,4 +1,9 @@
 {
+	"language": {
+		"es": "Español",
+		"en": "Inglés",
+		"pt": "Portugués"
+	},
 	"pages": {
 		"login": {
 			"title": "Iniciar sesión",

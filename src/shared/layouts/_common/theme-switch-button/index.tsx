@@ -1,7 +1,6 @@
 import IconButton from '@mui/joy/IconButton';
 
-import DarkModeRoundedIcon from '@mui/icons-material/DarkModeRounded';
-import LightModeRoundedIcon from '@mui/icons-material/LightModeRounded';
+import { IoSunny, IoMoonSharp } from "react-icons/io5";
 
 import { useThemeMode } from '@app/hooks/useThemeMode';
 
@@ -9,10 +8,10 @@ export function ThemeSwitchButton() {
   const { mode, toggleTheme } = useThemeMode();
 
   return (
-    <IconButton variant='outlined' size='sm' onClick={toggleTheme}>
+    <IconButton variant='outlined' size='md' onClick={toggleTheme}>
 			{mode === 'light'
-				? <DarkModeRoundedIcon />
-				: <LightModeRoundedIcon />
+				? <IoMoonSharp size={20} />
+				: <IoSunny size={20} />
 			}
     </IconButton>
   );

@@ -1,4 +1,9 @@
 {
+	"language": {
+		"es": "Espanhol",
+		"en": "Inglês",
+		"pt": "Português"
+	},
 	"pages": {
 		"login": {
 			"title": "Entrar",

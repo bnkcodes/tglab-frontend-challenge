@@ -1,11 +1,12 @@
 import React from "react";
 import { FormProvider } from "react-hook-form";
 
-import { FormInput} from "./components";
+import { FormInput, FormSelect} from "./components";
 import { type FormProps } from "./types";
 
 const FormComponent: React.FC<FormProps> & {
   Input: typeof FormInput;
+  Select: typeof FormSelect;
 } = ({ methods, children, className, onSubmit, ...props }) => {
 
   return (
@@ -24,7 +25,9 @@ const FormComponent: React.FC<FormProps> & {
 };
 
 FormComponent.Input = FormInput;
-
 FormComponent.Input.displayName = "Form.Input";
+
+FormComponent.Select = FormSelect;
+FormComponent.Select.displayName = "Form.Select";
 
 export const Form = FormComponent;

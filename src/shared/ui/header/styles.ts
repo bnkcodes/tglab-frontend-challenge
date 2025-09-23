@@ -54,6 +54,7 @@ export const ThemeToggleButton = styled.button`
 
 export const LanguageSelectorWrapper = styled.div`
 	display: flex;
+	gap: 8px;
 	align-items: center;
 	justify-content: center;
 `;
