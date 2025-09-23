@@ -19,7 +19,7 @@ export function AuthProvider({ children, ...props }: AuthProviderProps) {
 
   React.useEffect(() => {
     const token = localStorage.getItem(appConfig.auth.storageKey);
-    setSignedIn(!token);
+    setSignedIn(!!token);
   }, []);
 
   const signin = React.useCallback((loginResponse: LoginResponse) => {
