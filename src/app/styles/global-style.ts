@@ -131,6 +131,7 @@ export const GlobalStyle = createGlobalStyle`
 		margin: 0;
 		padding: 0;
 		box-sizing: border-box;
+		transition: all 0.2s linear;
 	}
 
 		html,
@@ -145,12 +146,12 @@ export const GlobalStyle = createGlobalStyle`
 		font-weight: 400;
     background-color: ${({ theme }) => theme.background.base};
     color: ${({ theme }) => theme.text.primary};
+		transition: none !important;
 	}
 
 	a, button {
 		color: inherit;
 		cursor: pointer;
-		transition: all 0.2s ease;
 	}
 
 	a {

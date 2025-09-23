@@ -11,7 +11,7 @@ export function LanguageSelect() {
 
   return (
 		<Select
-			onChange={(_, newValue) => onChangeLang(newValue)}
+			onChange={onChangeLang}
 			defaultValue={currentLang.value}
 			options={allLangs.map(lang => ({
 				label: t(`language.${lang.value}` as any),
