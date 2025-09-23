@@ -28,7 +28,7 @@
 		"create": "Create"
 	},
 	"pages": {
-		"login": {
+		"signin": {
 			"title": "Sign In",
 			"subtitle": "Don't have an account?",
 			"createAccount": "Get started",
@@ -41,17 +41,18 @@
 				"submit": "Sign In"
 			}
 		},
-		"register": {
+		"signup": {
 			"title": "Create your account",
 			"subtitle": "Already have an account?",
-			"login": "Sign In",
+			"signin": "Sign In",
 			"form": {
 				"name": "Full Name",
 				"email": "Email address",
 				"password": "Password",
 				"confirmPassword": "Confirm Password",
 				"error": {
-					"passwordsDontMatch": "Passwords don't match"
+					"passwordsDontMatch": "Passwords don't match",
+					"registrationFailed": "Registration failed. Please check your details and try again."
 				},
 				"submit": "Create Account"
 			}

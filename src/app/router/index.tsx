@@ -11,7 +11,8 @@ export function Router() {
 			<Routes>
 				<Route element={<AuthGuard isPrivate={false} />}>
 					<Route element={<Layout.PublicLayout />}>
-						<Route path="/login" element={<Pages.Login />} />
+						<Route path="/signin" element={<Pages.Signin />} />
+						<Route path="/signup" element={<Pages.Signup />} />
 					</Route>
 				</Route>
 

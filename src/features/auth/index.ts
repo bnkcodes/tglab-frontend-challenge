@@ -1,2 +1,2 @@
-export * from './hooks/useLogin';
+export * from './hooks';
 export * from './services/api';

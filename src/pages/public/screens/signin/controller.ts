@@ -1,17 +1,18 @@
+import { useEffect, useState } from "react";
+
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 
 import { useLogin } from "@features/auth";
-import { loginSchema } from "@features/auth/validations";
-import { useEffect, useState } from "react";
+import { signinSchema } from "@features/auth/validations";
 
-export function useLoginController() {
+export function useSigninController() {
 	const [isErrorDismissed, setIsErrorDismissed] = useState(true);
 
 	const { trigger, error, isMutating } = useLogin();
 
 	const methods = useForm({
-		resolver: zodResolver(loginSchema),
+		resolver: zodResolver(signinSchema),
 		defaultValues: {
 			email: "",
 			password: "",

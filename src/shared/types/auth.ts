@@ -5,7 +5,7 @@ export interface User {
   currency: string;
 }
 
-export interface LoginResponse {
+export interface SigninResponse {
   id: string;
   name: string;
   balance: number;
@@ -13,7 +13,7 @@ export interface LoginResponse {
   accessToken: string;
 }
 
-export interface LoginData {
-  email: string;
-  password: string;
+export interface SignupResponse {
+	id: string;
+	name: string;
 }

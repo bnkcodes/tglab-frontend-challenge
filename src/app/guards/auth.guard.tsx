@@ -11,7 +11,7 @@ export function AuthGuard({ isPrivate = true, children }: AuthGuardProps) {
   const { signedIn } = useAuth();
 
   if (!signedIn && isPrivate) {
-    return <Navigate to="/login" replace />;
+    return <Navigate to="/signin" replace />;
   }
 
   if (signedIn && !isPrivate) {

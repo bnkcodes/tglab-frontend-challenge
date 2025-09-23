@@ -13,7 +13,7 @@ export const appConfig: AppConfig = {
 		timeout: 10000,
 	},
 	routes: {
-		login: "/login",
+		login: "/signin",
 		home: "/",
 	},
   auth: {
