@@ -24,7 +24,6 @@ export const LoopingVideoBgOverlay = styled.div`
   inset: 0;
   width: 100%;
   height: auto;
-	transition: none;
 
   background: ${({ theme }) =>
     `linear-gradient(
