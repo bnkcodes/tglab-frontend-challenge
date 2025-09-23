@@ -77,5 +77,12 @@ export const joyTheme = extendTheme({
         },
       },
     },
-  },
+		JoyCard:{
+			styleOverrides: {
+				root: {
+					width: '100%',
+				},
+			},
+		},
+	},
 });

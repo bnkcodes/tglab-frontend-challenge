@@ -1,14 +1,14 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const FooterVideoWrapper = styled.footer`
   position: absolute;
-	bottom: 0;
+  bottom: 0;
   isolation: isolate;
 
   width: 100%;
   height: 100%;
-	max-height: 50vh;
-	z-index: -1;
+  max-height: 50vh;
+  z-index: -1;
 `;
 
 export const BgVideo = styled.video`

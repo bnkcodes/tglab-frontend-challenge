@@ -1,10 +1,30 @@
 {
-	"login": "Iniciar sesión",
-	"name": "Nombre",
-	"email": "Correo electrónico",
-	"password": "Contraseña",
-	"confirmPassword": "Confirmar contraseña",
-	"createAccount": "Crear cuenta",
-	"haveAccount": "¿Ya tienes una cuenta?",
-	"register": "Registrar"
+	"pages": {
+		"login": {
+			"title": "Iniciar sesión",
+			"subtitle": "¿No tienes una cuenta?",
+			"createAccount": "Comenzar",
+			"form": {
+				"email": "Correo electrónico",
+				"password": "Contraseña",
+				"error": {
+					"invalidCredentials": "Correo electrónico o contraseña inválidos"
+				}
+			}
+		},
+		"register": {
+			"title": "Crea tu cuenta",
+			"subtitle": "¿Ya tienes una cuenta?",
+			"login": "Iniciar sesión",
+			"form": {
+				"name": "Nombre completo",
+				"email": "Correo electrónico",
+				"password": "Contraseña",
+				"confirmPassword": "Confirmar contraseña",
+				"error": {
+					"passwordsDontMatch": "Las contraseñas no coinciden"
+				}
+			}
+		}
+	}
 }

@@ -1,10 +1,30 @@
 {
-	"login": "Entrar",
-	"name": "Nome",
-	"email": "Email",
-	"password": "Senha",
-	"confirmPassword": "Confirmar senha",
-	"createAccount": "Criar conta",
-	"haveAccount": "Já possui uma conta?",
-	"register": "Registrar"
+	"pages": {
+		"login": {
+			"title": "Entrar",
+			"subtitle": "Não tem uma conta?",
+			"createAccount": "Começar",
+			"form": {
+				"email": "E-mail",
+				"password": "Senha",
+				"error": {
+					"invalidCredentials": "E-mail ou senha inválidos"
+				}
+			}
+		},
+		"register": {
+			"title": "Crie sua conta",
+			"subtitle": "Já tem uma conta?",
+			"login": "Entrar",
+			"form": {
+				"name": "Nome completo",
+				"email": "E-mail",
+				"password": "Senha",
+				"confirmPassword": "Confirmar senha",
+				"error": {
+					"passwordsDontMatch": "As senhas não coincidem"
+				}
+			}
+		}
+	}
 }

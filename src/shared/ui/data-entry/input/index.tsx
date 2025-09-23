@@ -69,6 +69,8 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
 
 				<InputWrapper>
 					<MuiInput
+						variant="soft"
+						size="lg"
 						{...props}
 						slotProps={{
 							input: {

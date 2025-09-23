@@ -1,5 +1,4 @@
 import type { PropsWithChildren } from "react"
-import { Theme } from "@radix-ui/themes";
 
 import { GlobalStyle } from "@app/styles"
 
@@ -14,14 +13,12 @@ export function AppProvider({ children }: PropsWithChildren) {
 		<SWRProvider>
 			<ReduxProvider>
 				<LocaleProvider>
-					<Theme>
-						<ThemeModeProvider>
-							<AuthProvider>
-								<GlobalStyle />
-								{children}
-							</AuthProvider>
-						</ThemeModeProvider>
-					</Theme>
+					<ThemeModeProvider>
+						<AuthProvider>
+							<GlobalStyle />
+							{children}
+						</AuthProvider>
+					</ThemeModeProvider>
 				</LocaleProvider>
 			</ReduxProvider>
 		</SWRProvider>

@@ -1,10 +1,14 @@
 import styled from 'styled-components';
 
-import { appConfig } from '@app/configs';
-
 export const StyledContainer = styled.div`
 	position: relative;
-  max-width: 1200px;
+	width: 100%;
+	height: 100%;
   margin: 0 auto;
-  padding: ${appConfig.header.height + 16}px 16px 0px;
+  padding: 0px 16px;
+
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
 `;

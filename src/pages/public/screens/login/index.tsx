@@ -1,3 +1,5 @@
+import { Stack, Typography } from '@mui/joy';
+
 import { Form } from '@shared/ui/form';
 
 import { useLocale } from '@app/hooks/useLocale';
@@ -13,26 +15,24 @@ export function Login() {
 	const { t } = useLocale();
 
 	return (
-		<>
-			<h1>{t('login')}</h1>
+		<Stack gap={2} alignItems="center">
+			<Typography level="h3">{t('pages.login.title')}</Typography>
 
 			<Form methods={methods} onSubmit={trigger}>
 				<Form.Input
 					name="email"
-					label={t('email')}
+					label={t('pages.login.form.email')}
 					type="email"
-					variant='soft'
 					helperText='test'
 				/>
 
 				<Form.Input
 					name="password"
-					label={t('password')}
+					label={t('pages.login.form.password')}
 					type="password"
-					variant='soft'
 					required
 				/>
 			</Form>
-		</>
+		</Stack>
 	);
 }

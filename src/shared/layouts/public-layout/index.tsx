@@ -1,10 +1,9 @@
 import type { PropsWithChildren } from "react";
 import { Outlet } from 'react-router-dom';
 
-import { Container, Header } from "@shared/ui";
+import { Container, Header, LoopingVideoBg } from "@shared/ui";
 
-import { LoopingVideoBg } from "@modules/auth/components";
-import { Card, Content } from "./styles";
+import { Card } from "./styles";
 
 export function PublicLayout({ children }: PropsWithChildren) {
 	return (
@@ -12,11 +11,9 @@ export function PublicLayout({ children }: PropsWithChildren) {
 			<Container>
 				<Header />
 
-				<Content>
-					<Card>
-						{children ?? <Outlet />}
-					</Card>
-				</Content>
+				<Card size="lg" variant="plain">
+					{children ?? <Outlet />}
+				</Card>
 			</Container>
 
 			<LoopingVideoBg />

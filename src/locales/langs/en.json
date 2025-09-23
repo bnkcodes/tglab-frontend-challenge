@@ -1,10 +1,30 @@
 {
-	"login": "Login",
-	"name": "Name",
-	"email": "Email",
-	"password": "Password",
-	"confirmPassword": "Confirm Password",
-	"createAccount": "Create Account",
-	"haveAccount": "Already have an account?",
-	"register": "Register"
+	"pages": {
+		"login": {
+			"title": "Sign In",
+			"subtitle": "Don't have an account?",
+			"createAccount": "Get started",
+			"form": {
+				"email": "E-mail",
+				"password": "Password",
+				"error": {
+					"invalidCredentials": "Invalid email or password"
+				}
+			}
+		},
+		"register": {
+			"title": "Create your account",
+			"subtitle": "Already have an account?",
+			"login": "Sign In",
+			"form": {
+				"name": "Full Name",
+				"email": "E-mail",
+				"password": "Password",
+				"confirmPassword": "Confirm Password",
+				"error": {
+					"passwordsDontMatch": "Passwords don't match"
+				}
+			}
+		}
+	}
 }

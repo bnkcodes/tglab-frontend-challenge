@@ -8,7 +8,6 @@
     "skipLibCheck": true,
 		"baseUrl": "./src",
     "paths": {
-      "@modules/*": ["modules/*"],
       "@shared/*": ["shared/*"],
       "@app/*": ["app/*"],
       "@features/*": ["features/*"],
