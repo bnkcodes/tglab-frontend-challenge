@@ -15,6 +15,18 @@
 		"integer": "Por favor, ingresa un entero válido.",
 		"invalid": "Por favor, ingresa un valor válido."
   },
+	"actions": {
+		"success": "Éxito",
+		"error": "Error",
+		"close": "Cerrar",
+		"confirm": "Confirmar",
+		"cancel": "Cancelar",
+		"edit": "Editar",
+		"delete": "Eliminar",
+		"save": "Guardar",
+		"update": "Actualizar",
+		"create": "Crear"
+	},
 	"pages": {
 		"login": {
 			"title": "Iniciar sesión",

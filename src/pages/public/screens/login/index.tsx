@@ -1,6 +1,6 @@
 import { Stack, Typography } from '@mui/joy';
 
-import { Button, Form, Link } from '@shared/ui';
+import { Button, Form, Link, Alert } from '@shared/ui';
 
 import { useLocale } from '@app/hooks/useLocale';
 
@@ -9,7 +9,10 @@ import { useLoginController } from './controller';
 export function Login() {
 	const {
 		methods,
+		isMutating,
+		isErrorDismissed,
 		trigger,
+		dismissError,
 	} = useLoginController();
 
 	const { t } = useLocale();
@@ -26,6 +29,16 @@ export function Login() {
 
 			<Form methods={methods} onSubmit={trigger}>
 				<Stack gap={2} mb={4}>
+					<Alert
+						title={t('actions.error')}
+						description={t('pages.login.form.error.invalidCredentials')}
+						color="danger"
+						variant="soft"
+						visible={!isErrorDismissed}
+						onClose={dismissError}
+						sx={{ mb: 1 }}
+					/>
+
 					<Form.Input
 						name="email"
 						label={t('pages.login.form.email')}
@@ -39,7 +52,12 @@ export function Login() {
 					/>
 				</Stack>
 
-				<Button size='lg' type="submit" fullWidth>
+				<Button
+					type="submit"
+					size='lg'
+					loading={isMutating}
+					fullWidth
+				>
 					{t('pages.login.form.submit')}
 				</Button>
 			</Form>

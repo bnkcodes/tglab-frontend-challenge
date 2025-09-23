@@ -13,6 +13,7 @@ export function LanguageSelect() {
 		<Select
 			onChange={onChangeLang}
 			defaultValue={currentLang.value}
+			variant='outlined'
 			options={allLangs.map(lang => ({
 				label: t(`language.${lang.value}` as any),
 				value: lang.value,

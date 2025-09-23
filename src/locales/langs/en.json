@@ -15,6 +15,18 @@
     "integer": "Please enter a valid integer.",
     "invalid": "Please enter a valid value."
   },
+	"actions": {
+		"success": "Success",
+		"error": "Error",
+		"close": "Close",
+		"confirm": "Confirm",
+		"cancel": "Cancel",
+		"edit": "Edit",
+		"delete": "Delete",
+		"save": "Save",
+		"update": "Update",
+		"create": "Create"
+	},
 	"pages": {
 		"login": {
 			"title": "Sign In",

@@ -18,7 +18,7 @@ export const joyTheme = extendTheme({
         },
         text: {
           primary: '#000000',
-          secondary: '#bbd0cf',
+          secondary: '#869595ff',
           tertiary: '#d1d5db',
         },
       },
@@ -39,7 +39,7 @@ export const joyTheme = extendTheme({
         },
         text: {
           primary: '#ffffff',
-          secondary: '#bbd0cf',
+          secondary: '#6c7776ff',
           tertiary: '#7d8289',
         },
       },
