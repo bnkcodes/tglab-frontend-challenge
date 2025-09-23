@@ -1,44 +1,29 @@
-import { useState, useCallback } from "react";
-import { masks, type MaskFunctions } from "@core/utils";
+import { useImperativeHandle, useState } from "react";
+import { useMask } from '@react-input/mask';
 
-export function useInputController(mask?: keyof MaskFunctions) {
+import type { InputControllerProps } from "./types";
+
+export function useInputController({ ref, mask }: InputControllerProps) {
   const [showPassword, setShowPassword] = useState(false);
-  const [showInstructions, setShowInstructions] = useState(false);
+  const [showHelperText, setShowHelperText] = useState(false);
+
+	const maskedInputRef = useMask({ mask, replacement: { _: /\d/ }});
+
+	useImperativeHandle(ref, () => maskedInputRef.current!, [maskedInputRef]);
 
   const handleClickShowPassword = () => {
     setShowPassword((prev) => !prev);
   };
 
-  const handleClickShowInstructions = () => {
-    setShowInstructions((prev) => !prev);
+  const handleClickShowHelperText = () => {
+    setShowHelperText((prev) => !prev);
   };
-
-  const handleMouseDownPassword = (event: React.MouseEvent<HTMLButtonElement>) => {
-    event.preventDefault();
-  };
-
-  const applyMask = useCallback(
-    (value: string) => {
-      if (mask && value) {
-        const maskFunction = masks[mask];
-
-        if (!maskFunction) throw new Error("Máscara não definida");
-
-        return maskFunction(value);
-      } else {
-        if (value === null || typeof value === "undefined") return "";
-        return value;
-      }
-    },
-    [mask]
-  );
 
   return {
+		maskedInputRef,
     showPassword,
-    showInstructions,
+    showHelperText,
     handleClickShowPassword,
-    handleClickShowInstructions,
-    handleMouseDownPassword,
-    applyMask,
+    handleClickShowHelperText,
   };
 }

@@ -1,73 +1,87 @@
 import { forwardRef } from "react";
-import { TextField, InputAdornment, IconButton, Tooltip } from "@mui/material";
-import { VisibilityTwoTone, VisibilityOffTwoTone, InfoOutlined } from "@mui/icons-material";
+import Stack from '@mui/joy/Stack';
+import MuiInput from '@mui/joy/Input';
+import IconButton from '@mui/joy/IconButton';
+import VisibilityIcon from '@mui/icons-material/VisibilityRounded';
+import VisibilityOffIcon from '@mui/icons-material/VisibilityOffRounded';
 
-import { useInputController } from "./controller";
+import { Label, HelperTextButton, ErrorMessage } from "../@shared";
+
 import { type InputProps } from "./types";
 
+import { useInputController } from "./controller";
+
+import { InputWrapper } from "./styles";
+
+const PasswordVisibilityButton = ({ showPassword, onClick }: any) => {
+	return (
+		<IconButton size="sm" variant="soft" onClick={onClick}>
+			{showPassword ? (
+				<VisibilityOffIcon />
+			) : (
+				<VisibilityIcon />
+			)}
+		</IconButton>
+	)
+};
 export const Input = forwardRef<HTMLInputElement, InputProps>(
-  ({ name, label, value, mask, error, helperText, required, type, instructions, ...props }, ref) => {
+  ({ name, label, value, error, helperText, required, type, mask, ...props }, ref) => {
     const {
+			maskedInputRef,
       showPassword,
-      showInstructions,
+      showHelperText,
       handleClickShowPassword,
-      handleClickShowInstructions,
-      handleMouseDownPassword,
-      applyMask,
-    } = useInputController(mask);
+			handleClickShowHelperText,
+    } = useInputController({ ref, mask });
+
+		const displayEndDecorator = () => {
+			if (type === "password") {
+				return (
+					<PasswordVisibilityButton
+						showPassword={showPassword}
+						onClick={handleClickShowPassword}
+					/>
+				);
+			}
+
+			if (helperText) {
+				return (
+					<HelperTextButton
+						text={helperText}
+						show={showHelperText}
+						onClick={handleClickShowHelperText}
+					/>
+				);
+			}
+
+			return null;
+		};
+
+		const hasDecorator = type === "password" || !!helperText;
 
     return (
-      <TextField
-        {...props}
-        name={name}
-        value={applyMask(value)}
-        label={`${label}${required ? " *" : ""}`}
-        error={!!error}
-        helperText={helperText}
-        fullWidth
-        variant="outlined"
-        type={type === "password" && showPassword ? "text" : type}
-        slotProps={{
-          input: {
-            endAdornment: (
-              <InputAdornment position="end">
-                {instructions && (
-                  <Tooltip
-                    title={instructions}
-                    open={showInstructions}
-                    onClose={handleClickShowInstructions}
-                    arrow
-                  >
-                    <IconButton
-                      aria-label="show instructions"
-                      onClick={handleClickShowInstructions}
-                      edge="end"
-                    >
-                      <InfoOutlined />
-                    </IconButton>
-                  </Tooltip>
-                )}
+      <Stack spacing={0.5}>
+				{label && (
+					<Label required={required}>
+						{label}
+					</Label>
+				)}
 
-                {type === "password" && (
-                  <IconButton
-                    aria-label="toggle password visibility"
-                    onClick={handleClickShowPassword}
-                    onMouseDown={handleMouseDownPassword}
-                    edge="end"
-                  >
-                    {showPassword ? (
-                      <VisibilityOffTwoTone />
-                    ) : (
-                      <VisibilityTwoTone />
-                    )}
-                  </IconButton>
-                )}
-              </InputAdornment>
-            ),
-          },
-        }}
-        inputRef={ref}
-      />
+				<InputWrapper>
+					<MuiInput
+						{...props}
+						slotProps={{
+							input: {
+								ref: mask ? maskedInputRef : ref,
+								type: type === "password" && !showPassword ? "password" : "text",
+							}
+						}}
+						endDecorator={hasDecorator && displayEndDecorator()}
+					/>
+				</InputWrapper>
+
+				{error && <ErrorMessage message={error} />}
+			</Stack>
     );
   }
 );

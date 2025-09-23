@@ -77,6 +77,7 @@ export function ThemeModeProvider({
     <ThemeModeProviderContext.Provider value={value}>
       <ThemeProvider theme={theme}>
         {children}
+
         <ToastContainer
           theme={resolvedMode === "dark" ? "dark" : "light"}
           position="top-right"

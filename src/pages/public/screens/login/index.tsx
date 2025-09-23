@@ -21,7 +21,8 @@ export function Login() {
 					name="email"
 					label={t('email')}
 					type="email"
-					required
+					variant='solid'
+					helperText='test'
 				/>
 
 				<Form.Input

@@ -1,12 +1,16 @@
-import { type TextFieldProps } from "@mui/material/TextField";
-import { type MaskFunctions } from "@core/utils/masks";
+import { type InputProps as JoyInputProps } from '@mui/joy/Input';
 
-export interface InputProps extends Omit<TextFieldProps, "error"> {
+export interface InputProps extends Omit<JoyInputProps, "error"> {
   name?: string;
   value?: any;
-  mask?: keyof MaskFunctions;
+	label?: string;
+	mask?: string;
   initialValue?: any;
-  error?: boolean;
+  error?: string;
   helperText?: string;
-  instructions?: string;
+}
+
+export interface InputControllerProps {
+	ref?: React.Ref<HTMLInputElement>;
+	mask?: string;
 }
