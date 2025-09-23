@@ -1,9 +1,10 @@
 import { useCallback, useEffect, useMemo, useState, type PropsWithChildren } from "react"
+import { CssVarsProvider, useColorScheme } from '@mui/joy/styles'
 import { ThemeProvider } from "styled-components"
 import { ToastContainer } from "react-toastify"
 
 import { appConfig } from "@core/configs"
-import { lightTheme, darkTheme } from "@core/themes"
+import { lightTheme, darkTheme, joyTheme } from "@core/themes"
 import { ThemeModeProviderContext, type ThemeMode } from "@core/contexts"
 
 interface ThemeModeProviderProps extends PropsWithChildren {
@@ -11,55 +12,32 @@ interface ThemeModeProviderProps extends PropsWithChildren {
   storageKey?: string
 }
 
-const prefersDark = () => window.matchMedia("(prefers-color-scheme: dark)").matches
+function JoyModeSync({ mode }: { mode: ThemeMode }) {
+  const { setMode } = useColorScheme()
+
+  useEffect(() => {
+    setMode(mode as 'light' | 'dark' | 'system')
+  }, [mode, setMode])
+
+  return null
+}
 
 export function ThemeModeProvider({
   children,
   defaultMode = appConfig.theme.default,
   storageKey = appConfig.theme.storageKey,
 }: ThemeModeProviderProps) {
-  const getInitialMode = () => {
-    const saved = localStorage.getItem(storageKey) as ThemeMode | null
+  const [mode, setMode] = useState<ThemeMode>(() => {
+		const saved = localStorage.getItem(storageKey) as ThemeMode;
     return saved ?? defaultMode
-  }
-
-  const [mode, setMode] = useState<ThemeMode>(getInitialMode)
-
-  const resolvedMode = useMemo<Exclude<ThemeMode, "system">>(() => {
-    return mode === "system" ? (prefersDark() ? "dark" : "light") : mode
-  }, [mode])
-
-  const theme = resolvedMode === "dark" ? darkTheme : lightTheme
-
-  useEffect(() => {
-    const root = document.documentElement
-    root.classList.remove("light", "dark", "light-theme", "dark-theme")
-    root.classList.add(resolvedMode)
-    root.classList.add(`${resolvedMode}-theme`)
-    root.style.colorScheme = resolvedMode
-  }, [resolvedMode])
-
-  useEffect(() => {
-    if (mode !== "system") return
-    const mql = window.matchMedia("(prefers-color-scheme: dark)")
-
-    const handler = () => {
-      setMode("system")
-    }
-    mql.addEventListener?.("change", handler)
-    return () => mql.removeEventListener?.("change", handler)
-  }, [mode])
+	})
 
   const toggleTheme = useCallback(() => {
-    setMode(prev => {
-      const next: ThemeMode =
-        prev === "system"
-          ? (prefersDark() ? "light" : "dark")
-          : prev === "dark"
-          ? "light"
-          : "dark"
-      localStorage.setItem(storageKey, next)
-      return next
+    setMode((prevTheme) => {
+      const newTheme = prevTheme === 'dark' ? 'light' : 'dark';
+
+      localStorage.setItem(storageKey, newTheme)
+      return newTheme;
     })
   }, [storageKey])
 
@@ -69,20 +47,36 @@ export function ThemeModeProvider({
   }, [storageKey])
 
   const value = useMemo(
-    () => ({ mode, resolvedMode, toggleTheme, setTheme, theme }),
-    [mode, resolvedMode, toggleTheme, setTheme, theme]
+    () => ({ mode, toggleTheme, setTheme }),
+    [mode, toggleTheme, setTheme]
   )
+
+  const resolvedMode = useMemo<Exclude<ThemeMode, 'system'>>(() => {
+    if (mode === 'system') {
+      return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
+    }
+    return mode
+  }, [mode])
+
+  useEffect(() => {
+    const root = window.document.documentElement
+    root.classList.remove('light', 'dark')
+    root.classList.add(resolvedMode)
+  }, [resolvedMode])
 
   return (
     <ThemeModeProviderContext.Provider value={value}>
-      <ThemeProvider theme={theme}>
-        {children}
+      <CssVarsProvider theme={joyTheme} defaultMode={defaultMode} modeStorageKey={storageKey}>
+        <JoyModeSync mode={mode} />
+        <ThemeProvider theme={resolvedMode === "dark" ? darkTheme : lightTheme}>
+          {children}
 
-        <ToastContainer
-          theme={resolvedMode === "dark" ? "dark" : "light"}
-          position="top-right"
-        />
-      </ThemeProvider>
+          <ToastContainer
+            theme={resolvedMode === "dark" ? "dark" : "light"}
+            position="top-right"
+          />
+        </ThemeProvider>
+      </CssVarsProvider>
     </ThemeModeProviderContext.Provider>
   )
 }

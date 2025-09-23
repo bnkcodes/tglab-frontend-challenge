@@ -21,7 +21,7 @@ export function Login() {
 					name="email"
 					label={t('email')}
 					type="email"
-					variant='solid'
+					variant='soft'
 					helperText='test'
 				/>
 
@@ -29,6 +29,7 @@ export function Login() {
 					name="password"
 					label={t('password')}
 					type="password"
+					variant='soft'
 					required
 				/>
 			</Form>
