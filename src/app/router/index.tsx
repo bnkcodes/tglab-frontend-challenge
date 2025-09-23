@@ -1,6 +1,7 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
-import { AuthGuard } from '@app/guards/auth.guard';
+import { AuthGuard } from '@app/guards';
+
 import * as Pages from '@pages/public';
 import * as Layout from '@shared/layouts';
 

@@ -6,11 +6,11 @@ import LightModeRoundedIcon from '@mui/icons-material/LightModeRounded';
 import { useThemeMode } from '@app/hooks/useThemeMode';
 
 export function ThemeSwitchButton() {
-  const { resolvedMode, toggleTheme } = useThemeMode();
+  const { mode, toggleTheme } = useThemeMode();
 
   return (
     <IconButton variant='outlined' size='sm' onClick={toggleTheme}>
-			{resolvedMode === 'light'
+			{mode === 'light'
 				? <DarkModeRoundedIcon />
 				: <LightModeRoundedIcon />
 			}
