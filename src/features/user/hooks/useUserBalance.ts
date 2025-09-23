@@ -1,11 +1,16 @@
 import { useAppDispatch, useAppSelector } from '@app/store/hooks';
-import { setBalance, addToBalance, subtractFromBalance, clearBalance } from '../store';
-import { selectBalance, selectIsLoading } from '../store';
+
+import {
+	setBalance,
+	addToBalance,
+	subtractFromBalance,
+	clearBalance,
+	selectBalance
+} from '../store';
 
 export function useUserBalance() {
   const dispatch = useAppDispatch();
   const balance = useAppSelector(selectBalance);
-  const isLoading = useAppSelector(selectIsLoading);
 
   const updateBalance = (newBalance: number) => {
     dispatch(setBalance(newBalance));
@@ -25,7 +30,6 @@ export function useUserBalance() {
 
   return {
     balance,
-    isLoading,
     updateBalance,
     addBalance,
     subtractBalance,
