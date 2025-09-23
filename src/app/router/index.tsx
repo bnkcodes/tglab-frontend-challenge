@@ -9,15 +9,19 @@ export function Router() {
   return (
 		<BrowserRouter>
 			<Routes>
-				<Route element={<AuthGuard isPrivate={false} />}>
-					<Route element={<Layout.PublicLayout />}>
-						<Route path="/signin" element={<Pages.Signin />} />
-						<Route path="/signup" element={<Pages.Signup />} />
+				<Route element={<Layout.BaseLayout />}>
+					<Route element={<AuthGuard isPrivate={false} />}>
+						<Route element={<Layout.PublicLayout />}>
+							<Route path="/signin" element={<Pages.Signin />} />
+							<Route path="/signup" element={<Pages.Signup />} />
+						</Route>
 					</Route>
-				</Route>
 
-				<Route element={<AuthGuard isPrivate={true} />}>
-					<Route path="/" element={<div>Home Page - Usuário autenticado</div>} />
+					<Route element={<AuthGuard isPrivate={true} />}>
+						<Route element={<Layout.PrivateLayout />}>
+							<Route path="/" element={<div>Home Page - Usuário autenticado</div>} />
+						</Route>
+					</Route>
 				</Route>
 			</Routes>
 		</BrowserRouter>

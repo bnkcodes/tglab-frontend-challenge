@@ -1,6 +1,6 @@
 import logo from "@assets/images/svg/logo-full.svg";
 
-import { LanguageSelect, ThemeSwitchButton } from "@shared/layouts/_common";
+import { LanguageSelect, ThemeSwitchButton, UserMenu } from "@shared/layouts/_common";
 
 import {
 	HeaderContainer,
@@ -8,8 +8,11 @@ import {
 	LanguageSelectorWrapper,
 	RightSection
 } from './styles'
+import { useAuth } from "@app/hooks";
 
 export const Header = () => {
+	const { signedIn } = useAuth();
+
 	return (
 		<HeaderContainer>
 			<HeaderContent>
@@ -19,6 +22,8 @@ export const Header = () => {
 					<LanguageSelectorWrapper>
 						<LanguageSelect />
 						<ThemeSwitchButton />
+
+						{signedIn && <UserMenu />}
 					</LanguageSelectorWrapper>
 				</RightSection>
 			</HeaderContent>
