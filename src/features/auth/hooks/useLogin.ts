@@ -14,7 +14,7 @@ export function useLogin() {
   const navigate = useNavigate();
   const { signin } = useAuth();
 
-  const key = '/auth/login';
+  const key = '/login';
   const fetcher = toMutationFn<LoginFormValues, LoginResponse>(login);
 
   const mutation = useSWRMutation<LoginResponse, any, string, LoginFormValues>(key, fetcher, {

@@ -45,6 +45,12 @@ export const joyTheme = extendTheme({
       },
     },
   },
+	fontSize: {
+		xs: '0.75rem',   // 12px
+		sm: '0.8125rem', // 13px
+		md: '0.875rem',  // 14px
+		lg: '1rem',  // 16px
+  },
   fontFamily: {
     body: "'Robert Sans', Arial, sans-serif",
     display: "'Robert Sans', Arial, sans-serif",

@@ -17,9 +17,9 @@ export function Login() {
 	return (
 		<Stack gap={5} alignItems="center">
 			<Stack gap={1} alignItems="center">
-				<Typography level="h4">{t('pages.login.title')}</Typography>
+				<Typography level="h3">{t('pages.login.title')}</Typography>
 
-				<Typography level="body-sm">
+				<Typography level="body-md">
 					{t('pages.login.subtitle')} <Link to="/signup">{t('pages.login.createAccount')}</Link>
 				</Typography>
 			</Stack>
