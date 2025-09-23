@@ -7,11 +7,11 @@ import { ThemeModeProvider } from "./ThemeModeProvider"
 import { LocaleProvider } from "./LocaleProvider"
 import { ReduxProvider } from "./ReduxProvider"
 import { AuthProvider } from "./AuthProvider"
-import { ReactQueryProvider } from "./ReactQueryProvider";
+import { SWRProvider } from "./SWRProvider";
 
 export function AppProvider({ children }: PropsWithChildren) {
   return (
-		<ReactQueryProvider>
+		<SWRProvider>
 			<ReduxProvider>
 				<LocaleProvider>
 					<Theme>
@@ -24,6 +24,6 @@ export function AppProvider({ children }: PropsWithChildren) {
 					</Theme>
 				</LocaleProvider>
 			</ReduxProvider>
-		</ReactQueryProvider>
+		</SWRProvider>
   )
 }

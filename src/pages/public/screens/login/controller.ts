@@ -1,11 +1,11 @@
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 
-import { useLoginMutation } from "@modules/auth/services/mutations/login";
+import { useLogin } from "@features/auth";
 import { loginSchema } from "@modules/auth/validations";
 
-export function LoginController() {
-	const { mutateAsync, isPending } = useLoginMutation();
+export function useLoginController() {
+	const { trigger, isMutating } = useLogin();
 
 	const methods = useForm({
 		resolver: zodResolver(loginSchema),
@@ -18,7 +18,7 @@ export function LoginController() {
 
 	return {
 		methods,
-		isPending,
-		mutateAsync,
+		isMutating,
+		trigger,
 	};
 }

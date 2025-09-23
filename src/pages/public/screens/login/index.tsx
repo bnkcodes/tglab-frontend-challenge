@@ -2,13 +2,13 @@ import { Form } from '@shared/ui/form';
 
 import { useLocale } from '@app/hooks/useLocale';
 
-import { LoginController } from './login-controller';
+import { useLoginController } from './controller';
 
 export function Login() {
 	const {
 		methods,
-		mutateAsync,
-	} = LoginController();
+		trigger,
+	} = useLoginController();
 
 	const { t } = useLocale();
 
@@ -16,7 +16,7 @@ export function Login() {
 		<>
 			<h1>{t('login')}</h1>
 
-			<Form methods={methods} onSubmit={mutateAsync}>
+			<Form methods={methods} onSubmit={trigger}>
 				<Form.Input
 					name="email"
 					label={t('email')}

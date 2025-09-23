@@ -36,6 +36,7 @@
     "react-spinners": "^0.17.0",
     "react-toastify": "^11.0.5",
     "styled-components": "^6.1.19",
+    "swr": "^2.3.6",
     "vite-tsconfig-paths": "^5.1.4",
     "zod": "^4.1.9"
   },
