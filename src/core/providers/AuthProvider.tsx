@@ -1,6 +1,6 @@
 import React from 'react';
 
-import type { User, LoginResponse } from '../../shared/types/auth';
+import type { User, LoginResponse } from '@shared/types/auth';
 
 import { useAppDispatch } from '../store/hooks';
 import { setBalance, clearBalance } from '../store/user/userSlice';
