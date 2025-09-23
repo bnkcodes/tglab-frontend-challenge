@@ -4,6 +4,17 @@
 		"en": "Inglês",
 		"pt": "Português"
 	},
+	"zod": {
+		"required": "Este campo é obrigatório.",
+		"minLength": "Por favor, insira pelo menos {minLength} caracteres.",
+		"maxLength": "Por favor, não insira mais de {maxLength} caracteres.",
+		"minValue": "Por favor, insira um valor maior ou igual a {minValue}.",
+		"maxValue": "Por favor, insira um valor menor ou igual a {maxValue}.",
+		"email": "Por favor, insira um endereço de e-mail válido.",
+		"number": "Por favor, insira um número válido.",
+		"integer": "Por favor, insira um número inteiro válido.",
+		"invalid": "Por favor, insira um valor válido."
+	},
 	"pages": {
 		"login": {
 			"title": "Entrar",

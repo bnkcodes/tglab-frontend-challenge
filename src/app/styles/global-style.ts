@@ -131,7 +131,7 @@ export const GlobalStyle = createGlobalStyle`
 		margin: 0;
 		padding: 0;
 		box-sizing: border-box;
-		transition: all 0.2s linear;
+		transition: color 0.2s linear, background-color 0.2s linear;
 	}
 
 		html,

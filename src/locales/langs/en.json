@@ -4,6 +4,17 @@
 		"en": "English",
 		"pt": "Portuguese"
 	},
+	"zod": {
+    "required": "This field is required.",
+    "minLength": "Please enter at least {minLength} characters.",
+    "maxLength": "Please enter no more than {maxLength} characters.",
+    "minValue": "Please enter a value greater than or equal to {minValue}.",
+    "maxValue": "Please enter a value less than or equal to {maxValue}.",
+    "email": "Please enter a valid email address.",
+    "number": "Please enter a valid number.",
+    "integer": "Please enter a valid integer.",
+    "invalid": "Please enter a valid value."
+  },
 	"pages": {
 		"login": {
 			"title": "Sign In",
