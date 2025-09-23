@@ -13,7 +13,7 @@
       "@app/*": ["app/*"],
       "@pages/*": ["pages/*"],
       "@assets/*": ["assets/*"],
-      "@api/*": ["api/*"],
+  		"@api/*": ["shared/api/*"],
     },
 
     /* Bundler mode */
