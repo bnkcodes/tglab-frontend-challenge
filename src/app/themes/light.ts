@@ -15,8 +15,9 @@ export const lightTheme: DefaultTheme = {
   },
 
   brand: {
-    primary: "#25a69c",
-    secondary: "#063330",
+		light: "#7ef1f0",
+		main: "#25a69c",
+    dark: "#063330",
   },
 
   button: {

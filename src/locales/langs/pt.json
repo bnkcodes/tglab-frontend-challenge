@@ -9,7 +9,8 @@
 				"password": "Senha",
 				"error": {
 					"invalidCredentials": "E-mail ou senha inválidos"
-				}
+				},
+				"submit": "Entrar"
 			}
 		},
 		"register": {
@@ -23,7 +24,8 @@
 				"confirmPassword": "Confirmar senha",
 				"error": {
 					"passwordsDontMatch": "As senhas não coincidem"
-				}
+				},
+				"submit": "Criar conta"
 			}
 		}
 	}

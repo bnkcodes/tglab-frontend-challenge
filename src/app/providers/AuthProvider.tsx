@@ -2,10 +2,11 @@ import React from 'react';
 
 import type { User, LoginResponse } from '@shared/types/auth';
 
-import { useAppDispatch } from '../store/hooks';
 import { setBalance, clearBalance } from '@features/user/store';
-import { AuthContext, type AuthContextData } from '../contexts/AuthContext';
+
 import { appConfig } from '../configs';
+import { useAppDispatch } from '../store/hooks';
+import { AuthContext, type AuthContextData } from '../contexts/AuthContext';
 
 type AuthProviderProps = {
   children: React.ReactNode;

@@ -2,8 +2,7 @@ import { forwardRef } from "react";
 import Stack from '@mui/joy/Stack';
 import MuiInput from '@mui/joy/Input';
 import IconButton from '@mui/joy/IconButton';
-import VisibilityIcon from '@mui/icons-material/VisibilityRounded';
-import VisibilityOffIcon from '@mui/icons-material/VisibilityOffRounded';
+import { RiEyeFill, RiEyeCloseLine } from "react-icons/ri";
 
 import { Label, HelperTextButton, ErrorMessage } from "../@shared";
 
@@ -17,9 +16,9 @@ const PasswordVisibilityButton = ({ showPassword, onClick }: any) => {
 	return (
 		<IconButton size="sm" variant="soft" onClick={onClick}>
 			{showPassword ? (
-				<VisibilityOffIcon />
+				<RiEyeCloseLine size={16} />
 			) : (
-				<VisibilityIcon />
+				<RiEyeFill size={16} />
 			)}
 		</IconButton>
 	)

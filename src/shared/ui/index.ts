@@ -6,3 +6,4 @@ export * from "./button";
 export * from "./data-entry";
 export * from "./iconifly";
 export * from "./background";
+export * from "./link";

@@ -5,11 +5,12 @@
 			"subtitle": "Don't have an account?",
 			"createAccount": "Get started",
 			"form": {
-				"email": "E-mail",
+				"email": "Email address",
 				"password": "Password",
 				"error": {
 					"invalidCredentials": "Invalid email or password"
-				}
+				},
+				"submit": "Sign In"
 			}
 		},
 		"register": {
@@ -18,12 +19,13 @@
 			"login": "Sign In",
 			"form": {
 				"name": "Full Name",
-				"email": "E-mail",
+				"email": "Email address",
 				"password": "Password",
 				"confirmPassword": "Confirm Password",
 				"error": {
 					"passwordsDontMatch": "Passwords don't match"
-				}
+				},
+				"submit": "Create Account"
 			}
 		}
 	}

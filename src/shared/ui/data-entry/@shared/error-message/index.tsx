@@ -3,7 +3,7 @@ import type { ErrorMessageProps } from "./types";
 
 export const ErrorMessage = ({ message }: ErrorMessageProps) => {
 	return (
-		<Typography level="body-xs" style={{ color: 'red' }}>
+		<Typography level="body-xs" color="danger">
 			{message}
 		</Typography>
 	);

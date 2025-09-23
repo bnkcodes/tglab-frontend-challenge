@@ -1,6 +1,6 @@
 import { Stack, Typography } from '@mui/joy';
 
-import { Form } from '@shared/ui/form';
+import { Button, Form, Link } from '@shared/ui';
 
 import { useLocale } from '@app/hooks/useLocale';
 
@@ -15,23 +15,33 @@ export function Login() {
 	const { t } = useLocale();
 
 	return (
-		<Stack gap={2} alignItems="center">
-			<Typography level="h3">{t('pages.login.title')}</Typography>
+		<Stack gap={5} alignItems="center">
+			<Stack gap={1} alignItems="center">
+				<Typography level="h4">{t('pages.login.title')}</Typography>
+
+				<Typography level="body-sm">
+					{t('pages.login.subtitle')} <Link to="/signup">{t('pages.login.createAccount')}</Link>
+				</Typography>
+			</Stack>
 
 			<Form methods={methods} onSubmit={trigger}>
-				<Form.Input
-					name="email"
-					label={t('pages.login.form.email')}
-					type="email"
-					helperText='test'
-				/>
+				<Stack gap={2} mb={4}>
+					<Form.Input
+						name="email"
+						label={t('pages.login.form.email')}
+						type="email"
+					/>
 
-				<Form.Input
-					name="password"
-					label={t('pages.login.form.password')}
-					type="password"
-					required
-				/>
+					<Form.Input
+						name="password"
+						label={t('pages.login.form.password')}
+						type="password"
+					/>
+				</Stack>
+
+				<Button size='lg' type="submit" fullWidth>
+					{t('pages.login.form.submit')}
+				</Button>
 			</Form>
 		</Stack>
 	);

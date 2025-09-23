@@ -16,8 +16,9 @@ declare module "styled-components" {
     };
 
     brand: {
-      primary: string;
-      secondary: string;
+			light: string;
+      main: string;
+      dark: string;
     };
 
     button: {

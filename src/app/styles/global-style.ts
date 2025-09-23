@@ -150,6 +150,7 @@ export const GlobalStyle = createGlobalStyle`
 	a, button {
 		color: inherit;
 		cursor: pointer;
+		transition: all 0.2s ease;
 	}
 
 	a {
