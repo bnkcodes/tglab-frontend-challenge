@@ -11,6 +11,7 @@
       "@modules/*": ["modules/*"],
       "@shared/*": ["shared/*"],
       "@app/*": ["app/*"],
+      "@features/*": ["features/*"],
       "@pages/*": ["pages/*"],
       "@assets/*": ["assets/*"],
   		"@api/*": ["shared/api/*"],

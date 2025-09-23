@@ -1,9 +1,16 @@
+import {
+	setBalance,
+	addToBalance,
+	subtractFromBalance,
+	clearBalance
+} from '@features/user/store';
+
 import { useAppDispatch, useAppSelector } from '../store/hooks';
-import { setBalance, addToBalance, subtractFromBalance, clearBalance } from '../store/user/userSlice';
+import type { RootState } from '../store';
 
 export function useUserBalance() {
   const dispatch = useAppDispatch();
-  const { balance, isLoading } = useAppSelector((state) => state.userBalance);
+  const { balance, isLoading } = useAppSelector((state: RootState) => state.userBalance);
 
   const updateBalance = (newBalance: number) => {
     dispatch(setBalance(newBalance));

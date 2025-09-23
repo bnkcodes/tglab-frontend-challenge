@@ -1,5 +1,5 @@
 import { configureStore } from '@reduxjs/toolkit';
-import userBalanceReducer from './user/userSlice';
+import userBalanceReducer from '@features/user/store/userSlice';
 
 export const store = configureStore({
   reducer: {
