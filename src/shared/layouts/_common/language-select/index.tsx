@@ -2,7 +2,7 @@ import * as Select from '@radix-ui/react-select';
 
 import { allLangs } from 'locales/config-lang';
 
-import { Iconify } from '@shared/components';
+import { Iconify } from '@shared/ui';
 import { useLocale } from '@app/hooks/useLocale';
 
 import { Trigger, Content, Item } from './styles';

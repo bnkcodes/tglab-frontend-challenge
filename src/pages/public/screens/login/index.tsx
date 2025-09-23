@@ -1,4 +1,4 @@
-import { Form } from '@shared/components/form';
+import { Form } from '@shared/ui/form';
 
 import { useLocale } from '@app/hooks/useLocale';
 

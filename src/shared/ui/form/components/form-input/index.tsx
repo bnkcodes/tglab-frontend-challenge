@@ -1,6 +1,6 @@
 import { forwardRef } from "react";
 
-import { Input } from "@shared/components/data-entry";
+import { Input } from "@shared/ui/data-entry";
 
 import type { FormInputProps } from "../../types";
 import { FormField } from "../form-field";
