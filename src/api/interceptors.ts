@@ -1,5 +1,5 @@
 import { AxiosError, type InternalAxiosRequestConfig } from "axios";
-import { appConfig } from "@core/configs";
+import { appConfig } from "@app/configs";
 
 export const requestInterceptor = (config: InternalAxiosRequestConfig) => {
   const token = localStorage.getItem(appConfig.auth.storageKey);

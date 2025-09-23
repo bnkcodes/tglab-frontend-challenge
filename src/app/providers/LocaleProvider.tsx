@@ -3,7 +3,7 @@ import { useTranslation } from "react-i18next";
 
 import { allLangs, defaultLang } from "locales/config-lang";
 
-import { LocaleProviderContext } from "@core/contexts";
+import { LocaleProviderContext } from "@app/contexts";
 
 export function LocaleProvider({ children }: PropsWithChildren) {
   const { i18n, t } = useTranslation();

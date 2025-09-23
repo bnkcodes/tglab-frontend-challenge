@@ -1,9 +1,9 @@
 import "@radix-ui/themes/styles.css";
 import 'locales/i18n'
 
-import { Router } from "router";
+import { Router } from "@app/router";
 
-import { AppProvider } from "@core/providers";
+import { AppProvider } from "@app/providers";
 
 export function App() {
 	return (

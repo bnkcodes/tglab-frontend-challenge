@@ -1,6 +1,6 @@
 import axios from "axios";
 
-import { appConfig } from "@core/configs"
+import { appConfig } from "@app/configs"
 import { requestInterceptor, responseInterceptor } from "./interceptors";
 
 export const api = axios.create({

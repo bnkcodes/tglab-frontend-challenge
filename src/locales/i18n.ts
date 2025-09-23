@@ -4,7 +4,7 @@ import { initReactI18next } from 'react-i18next';
 
 import { localStorageGetItem } from '@shared/utils';
 
-import { appConfig } from '@core/configs';
+import { appConfig } from '@app/configs';
 
 import { defaultLang } from './config-lang';
 

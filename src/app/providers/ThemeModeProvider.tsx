@@ -3,9 +3,9 @@ import { CssVarsProvider, useColorScheme } from '@mui/joy/styles'
 import { ThemeProvider } from "styled-components"
 import { ToastContainer } from "react-toastify"
 
-import { appConfig } from "@core/configs"
-import { lightTheme, darkTheme, joyTheme } from "@core/themes"
-import { ThemeModeProviderContext, type ThemeMode } from "@core/contexts"
+import { appConfig } from "@app/configs"
+import { lightTheme, darkTheme, joyTheme } from "@app/themes"
+import { ThemeModeProviderContext, type ThemeMode } from "@app/contexts"
 
 interface ThemeModeProviderProps extends PropsWithChildren {
   defaultMode?: ThemeMode

@@ -1,4 +1,4 @@
-import type { ThemeMode } from "@core/contexts/ThemeModeContext";
+import type { ThemeMode } from "@app/contexts";
 
 export type AppConfig = {
 	api: {

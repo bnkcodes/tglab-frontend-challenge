@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { appConfig } from '@core/configs';
+import { appConfig } from '@app/configs';
 
 export const StyledContainer = styled.div`
 	position: relative;

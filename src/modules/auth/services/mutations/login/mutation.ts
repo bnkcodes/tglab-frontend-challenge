@@ -2,8 +2,8 @@ import { toast } from "react-toastify";
 import { useNavigate } from "react-router";
 import { useMutation } from "@tanstack/react-query";
 
-import { useLocale } from "@core/hooks/useLocale";
-import { useAuth } from "@core/hooks/useAuth";
+import { useLocale } from "@app/hooks/useLocale";
+import { useAuth } from "@app/hooks/useAuth";
 
 import type { LoginFormValues } from "@modules/auth/validations";
 import type { LoginResponse } from "@modules/auth/types/login-response";

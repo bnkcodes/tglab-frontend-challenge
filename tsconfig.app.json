@@ -10,7 +10,7 @@
     "paths": {
       "@modules/*": ["modules/*"],
       "@shared/*": ["shared/*"],
-      "@core/*": ["core/*"],
+      "@app/*": ["app/*"],
       "@pages/*": ["pages/*"],
       "@assets/*": ["assets/*"],
       "@api/*": ["api/*"],

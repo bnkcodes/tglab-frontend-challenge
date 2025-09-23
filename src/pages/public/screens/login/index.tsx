@@ -1,6 +1,6 @@
 import { Form } from '@shared/components/form';
 
-import { useLocale } from '@core/hooks/useLocale';
+import { useLocale } from '@app/hooks/useLocale';
 
 import { LoginController } from './login-controller';
 
