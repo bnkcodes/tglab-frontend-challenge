@@ -1,69 +1,115 @@
-# React + TypeScript + Vite
+# TGLab Frontend Challenge
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Descrição
 
-Currently, two official plugins are available:
+Esta é uma aplicação web desenvolvida com React + TypeScript + Vite que simula uma plataforma de apostas. A aplicação permite que usuários se registrem, façam login, realizem apostas e carregar seus saldos.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Requisitos
 
-## Expanding the ESLint configuration
+- Node.js >= 18.x
+- Yarn ou npm
+- Mock API rodando (disponível em: https://github.com/bnkcodes/tglab-mock-api)
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Instalação
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+1. Clone este repositório:
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+   ```bash
+   git clone https://github.com/bnkcodes/tglab-frontend-challenge.git
+   cd tglab-frontend-challenge
+   ```
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+2. Instale as dependências utilizando o Yarn:
+
+   ```bash
+   yarn
+   ```
+
+   Ou com npm:
+
+   ```bash
+   npm install
+   ```
+
+## Configuração
+
+1. Certifique-se de que a Mock API esteja rodando em `http://localhost:3000`
+
+## Execução
+
+1. Para rodar a aplicação em ambiente de desenvolvimento:
+
+   ```bash
+   yarn dev
+   ```
+
+   Ou com npm:
+
+   ```bash
+   npm run dev
+   ```
+
+
+A aplicação estará disponível em: http://localhost:5173
+
+## Funcionalidades
+
+### Autenticação
+- **Registro**: Criação de conta com nome, email e senha
+- **Login**: Autenticação de usuários existentes
+- **Logout**: Encerramento de sessão
+
+### Apostas
+- **Realizar Apostas**: Interface para criar novas apostas com valor personalizado
+- **Deposito de saldo**: Interface para adicionar saldo com valor personalizado
+
+
+
+### Internacionalização
+- **Múltiplos idiomas**: Suporte a português, inglês e espanhol
+- **Formatação**: Moedas formatadas conforme o locale selecionado
+
+## Estrutura do Projeto
+
+```
+src/
+├── @types/               # Tipagens customizados em modulo globais
+├── app/                  # Configurações gerais da aplicação
+├── features/             # Funcionalidades por domínio
+├── pages/                # Páginas da aplicação
+│   ├── private/          # Páginas privadas (autenticadas)
+│   └── public/           # Páginas públicas
+├── shared/               # Componentes e utilities compartilhados
+└── locales/              # Arquivos de tradução
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Tecnologias Utilizadas
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+- **TypeScript**: Superset JavaScript com tipagem estática
+- **Vite**: Build tool e dev server
+- **MUI Joy**: Biblioteca de componentes UI
+- **SWR**: Biblioteca para gerenciamento de estado remoto
+- **React Router**: Roteamento da aplicação
+- **React Hook Form**: Gerenciamento de formulários
+- **i18next**: Internacionalização
+- **Zod**: Validação de schemas
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## Iniciar a aplicação
+
+- `yarn dev`: Inicia o servidor de desenvolvimento
+
+## API Endpoints Utilizados
+
+A aplicação consome os seguintes endpoints da Mock API:
+
+- `POST /register` - Registro de usuário
+- `POST /login` - Login de usuário
+- `POST /bet` - Realizar aposta
+- `POST /deposit` - Adicionar saldo (Novo)
+- `GET /my-bets` - Consultar apostas (Não finalizado)
+- `DELETE /my-bet/:id` - Cancelar aposta (Não finalizado)
+- `GET /my-transactions` - Consultar transações (Não finalizado)
+
+## Observações
+
+Par o funcionamento, certifique-se de que a Mock API esteja rodando antes de iniciar a aplicação frontend.
