@@ -3,6 +3,10 @@ import type { ThemeMode } from "@app/contexts";
 export type AppConfig = {
 	api: {
 		baseURL: string;
+		cookies: {
+			secure: boolean;
+			sameSite: "lax" | "strict" | "none" | undefined;
+		};
 		timeout: number;
 	};
 	routes: {
@@ -11,7 +15,9 @@ export type AppConfig = {
 	};
 	auth: {
 		storageKey: string;
-		tokenKey: string;
+	};
+	user: {
+		storageKey: string;
 	};
 	theme: {
 		storageKey: string;

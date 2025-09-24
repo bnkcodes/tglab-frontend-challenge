@@ -1,38 +1,18 @@
+import { useCallback } from 'react';
+
 import { useAppDispatch, useAppSelector } from '@app/store/hooks';
 
 import {
-	setBalance,
-	addToBalance,
-	subtractFromBalance,
-	clearBalance,
-	selectBalance
+	setBalance, addToBalance, subtractFromBalance, selectBalance
 } from '../store';
 
 export function useUserBalance() {
   const dispatch = useAppDispatch();
   const balance = useAppSelector(selectBalance);
 
-  const updateBalance = (newBalance: number) => {
-    dispatch(setBalance(newBalance));
-  };
+  const updateBalance	= useCallback((v: number) => dispatch(setBalance(v)), [dispatch]);
+  const addBalance = useCallback((v: number) => dispatch(addToBalance(v)), [dispatch]);
+  const subtractBalance = useCallback((v: number) => dispatch(subtractFromBalance(v)), [dispatch]);
 
-  const addBalance = (amount: number) => {
-    dispatch(addToBalance(amount));
-  };
-
-  const subtractBalance = (amount: number) => {
-    dispatch(subtractFromBalance(amount));
-  };
-
-  const clearUserBalance = () => {
-    dispatch(clearBalance());
-  };
-
-  return {
-    balance,
-    updateBalance,
-    addBalance,
-    subtractBalance,
-    clearUserBalance,
-  };
+  return { balance, updateBalance, addBalance, subtractBalance };
 }

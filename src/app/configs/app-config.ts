@@ -10,6 +10,10 @@ if (missingEnvVars.length > 0) {
 export const appConfig: AppConfig = {
 	api: {
 		baseURL: import.meta.env.VITE_BACKEND_URL,
+		cookies: {
+			secure: import.meta.env.COOKIE_SECURE === "true",
+			sameSite: import.meta.env.COOKIE_SAME_SITE,
+		},
 		timeout: 10000,
 	},
 	routes: {
@@ -17,10 +21,12 @@ export const appConfig: AppConfig = {
 		home: "/",
 	},
   auth: {
-    storageKey: "tg:authToken",
-    tokenKey: "token",
+    storageKey: "tg:token",
   },
-	theme:{
+	user: {
+		storageKey: "tg:user",
+	},
+	theme: {
 		storageKey: "tg:themeMode",
 		default: "system"
 	},

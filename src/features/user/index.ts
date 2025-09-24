@@ -1,2 +1,2 @@
-export * from './hooks/useUserBalance';
+export * from './hooks';
 export * from './store';

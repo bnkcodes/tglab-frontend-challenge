@@ -1,62 +1,63 @@
-import React from 'react';
+import { useCallback, useEffect, useState, type ReactNode } from 'react';
+import Cookies from "js-cookie";
 
-import type { User, LoginResponse } from '@shared/types/auth';
+import type { User, SigninResponse } from '@shared/types/auth';
 
-import { setBalance, clearBalance } from '@features/user/store';
+import { setUser, clearUser } from '@features/user/store';
 
 import { appConfig } from '../configs';
 import { useAppDispatch } from '../store/hooks';
 import { AuthContext, type AuthContextData } from '../contexts/AuthContext';
 
 type AuthProviderProps = {
-  children: React.ReactNode;
+  children: ReactNode;
 };
 
 export function AuthProvider({ children, ...props }: AuthProviderProps) {
-  const dispatch = useAppDispatch();
+  const [isAuthenticated, setIsAuthenticated] = useState<boolean>(false);
 
-  const [user, setUser] = React.useState<User | null>(null);
-  const [signedIn, setSignedIn] = React.useState<boolean>(false);
+	const dispatch = useAppDispatch();
 
-  React.useEffect(() => {
-    const token = localStorage.getItem(appConfig.auth.storageKey);
-    setSignedIn(!!token);
+	const { storageKey } = appConfig.auth;
+
+  useEffect(() => {
+    const token = Cookies.get(storageKey);
+    setIsAuthenticated(!!token);
   }, []);
 
-  const signin = React.useCallback((loginResponse: LoginResponse) => {
-    localStorage.setItem(appConfig.auth.storageKey, loginResponse.accessToken);
+  const signin = useCallback((signinResponse: SigninResponse) => {
+    Cookies.set(storageKey, signinResponse.accessToken, {
+      secure: appConfig.api.cookies.secure,
+      sameSite: appConfig.api.cookies.sameSite,
+			paths: '/',
+    });
 
     const userData: User = {
-      id: loginResponse.id,
-      name: loginResponse.name,
-      balance: loginResponse.balance,
-      currency: loginResponse.currency,
+      id: signinResponse.id,
+      name: signinResponse.name,
+      balance: signinResponse.balance,
+      currency: signinResponse.currency,
     };
 
-    setUser(userData);
-    dispatch(setBalance(loginResponse.balance));
-    setSignedIn(true);
+    dispatch(setUser(userData));
+    setIsAuthenticated(true);
   }, [dispatch]);
 
-  const signout = React.useCallback(() => {
-    localStorage.removeItem(appConfig.auth.storageKey);
-    setUser(null);
-    dispatch(clearBalance());
-    setSignedIn(false);
+  const signout = useCallback(() => {
+		Cookies.remove(storageKey, {
+			paths: '/',
+		});
+
+    dispatch(clearUser());
+    setIsAuthenticated(false);
   }, [dispatch]);
 
-  const updateUser = React.useCallback((userData: User) => {
-    setUser(userData);
-
-    if (userData.balance !== undefined) {
-      dispatch(setBalance(userData.balance));
-    }
+  const updateUser = useCallback((userData: User) => {
+  	dispatch(setUser(userData));
   }, [dispatch]);
-
 
   const value: AuthContextData = {
-    signedIn,
-    user,
+    isAuthenticated,
     signin,
     signout,
     updateUser,

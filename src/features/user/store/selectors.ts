@@ -1,5 +1,15 @@
-import type { RootState } from '@app/store';
+import { createSelector } from "@reduxjs/toolkit";
 
-export const selectUserBalanceState = (state: RootState) => state.userBalance;
+import type { RootState } from "@app/store";
 
-export const selectBalance = (state: RootState) => selectUserBalanceState(state).balance;
+const selectUserSlice = (state: RootState) => state.user;
+
+export const selectUserId = (s: RootState) => selectUserSlice(s).id;
+export const selectUserName = (s: RootState) => selectUserSlice(s).name;
+export const selectBalance = (s: RootState) => selectUserSlice(s).balance;
+export const selectCurrency = (s: RootState) => selectUserSlice(s).currency;
+
+export const selectUserProfile = createSelector(
+  [selectUserId, selectUserName, selectCurrency],
+  (id, name, currency) => ({ id, name, currency })
+);

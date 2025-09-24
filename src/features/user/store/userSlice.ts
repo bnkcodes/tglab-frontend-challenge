@@ -1,39 +1,52 @@
 import { createSlice, type PayloadAction } from '@reduxjs/toolkit';
 
-interface UserBalanceState {
+import type { User } from '@shared/types/auth';
+
+interface UserState {
+  id: string;
+  name: string;
   balance: number;
+  currency: string;
 }
 
-const initialState: UserBalanceState = {
+const initialState: UserState = {
+  id: '',
+  name: '',
   balance: 0,
+  currency: '',
 };
 
-const userBalanceSlice = createSlice({
-  name: 'userBalance',
+const slice = createSlice({
+  name: 'user',
   initialState,
   reducers: {
-    setBalance: (state, action: PayloadAction<number>) => {
-      state.balance = action.payload;
+    setUser: (state, { payload }: PayloadAction<User>) => {
+      state.id = payload.id;
+      state.name = payload.name;
+      state.balance = payload.balance;
+      state.currency = payload.currency;
     },
-    addToBalance: (state, action: PayloadAction<number>) => {
-      state.balance += action.payload;
-    },
-    subtractFromBalance: (state, action: PayloadAction<number>) => {
-      if (state.balance >= action.payload) {
-        state.balance -= action.payload;
-      }
-    },
-    clearBalance: (state) => {
+    clearUser: (state) => {
+      state.id = '';
+      state.name = '';
       state.balance = 0;
+      state.currency = '';
+    },
+    setBalance: (state, { payload }: PayloadAction<number>) => {
+      if (Number.isFinite(payload) && payload >= 0) state.balance = payload;
+    },
+    addToBalance: (state, { payload }: PayloadAction<number>) => {
+      if (Number.isFinite(payload) && payload >= 0) state.balance += payload;
+    },
+    subtractFromBalance: (state, { payload }: PayloadAction<number>) => {
+      if (Number.isFinite(payload) && payload >= 0)
+        state.balance = Math.max(0, state.balance - payload);
     },
   },
 });
 
 export const {
-  setBalance,
-  addToBalance,
-  subtractFromBalance,
-  clearBalance
-} = userBalanceSlice.actions;
+  setUser, clearUser, setBalance, addToBalance, subtractFromBalance,
+} = slice.actions;
 
-export default userBalanceSlice.reducer;
+export default slice.reducer;
