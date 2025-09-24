@@ -20,9 +20,10 @@ export function Router() {
 					</Route>
 
 					<Route element={<AuthGuard isPrivate={true} />}>
-						<Route path="/" element={<Layout.PrivateLayout />}>
-							<Route index element={<PrivatePages.Bet />} />
-							<Route path="my-bets" element={<PrivatePages.MyBets />} />
+						<Route element={<Layout.PrivateLayout />}>
+							<Route path="/"  element={<PrivatePages.Bet />} />
+							<Route path="/my-bets" element={<PrivatePages.MyBets />} />
+							<Route path="/transactions" element={<PrivatePages.Transactions />} />
 						</Route>
 					</Route>
 				</Route>

@@ -4,19 +4,23 @@ import { Stack, Typography } from "@mui/joy";
 
 import { useLocale } from "@app/hooks";
 
-import { Wallet } from "./_components";
+import { Wallet, PagesTab } from "./_components";
 
 export function PrivateLayout({ children }: PropsWithChildren) {
 	const { t } = useLocale();
 
 	return (
-		<Stack gap={10}>
-			<Stack gap={3}>
-				<Typography level="h1" color="neutral">
-					{t("dashboard.title")} <Typography color="primary">TG Lab</Typography>
-				</Typography>
+		<Stack gap={6}>
+			<Stack gap={9}>
+				<Stack gap={3}>
+					<Typography level="h1" color="neutral">
+						{t("dashboard.title")} <Typography color="primary">TG Lab</Typography>
+					</Typography>
 
-				<Wallet />
+					<Wallet />
+				</Stack>
+
+				<PagesTab />
 			</Stack>
 
 			{children ?? <Outlet />}

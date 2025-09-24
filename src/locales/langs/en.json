@@ -39,6 +39,11 @@
 			"invalid_amount": "Invalid amount"
 		}
 	},
+	"tabs": {
+		"bet": "Bet",
+		"myBets": "My Bets",
+		"transactions": "Transactions"
+	},
 	"pages": {
 		"signin": {
 			"title": "Sign In",

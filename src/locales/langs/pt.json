@@ -39,6 +39,11 @@
 			"invalid_amount": "Valor inválido"
 		}
 	},
+	"tabs": {
+		"bet": "Apostar",
+		"myBets": "Minhas Apostas",
+		"transactions": "Transações"
+	},
 	"pages": {
 		"signin": {
 			"title": "Entrar",
