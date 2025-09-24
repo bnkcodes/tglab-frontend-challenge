@@ -1,9 +1,13 @@
 import { useCallback, useEffect, useState, type ReactNode } from 'react';
 import Cookies from "js-cookie";
 
-import type { User, SigninResponse } from '@shared/types/auth';
+import { connectSocket } from '@shared/api/socket';
 
-import { setUser, clearUser } from '@features/user/store';
+import type { User } from '@shared/types/user';
+import type { SigninResponse } from '@shared/types/auth'
+import type { SocketBalanceUpdate } from '@shared/types/socket';
+
+import { setUser, clearUser, setBalance } from '@features/user/store';
 
 import { appConfig } from '../configs';
 import { useAppDispatch } from '../store/hooks';
@@ -25,11 +29,27 @@ export function AuthProvider({ children, ...props }: AuthProviderProps) {
     setIsAuthenticated(!!token);
   }, []);
 
+	useEffect(() => {
+    if (!isAuthenticated) return;
+
+    const s = connectSocket();
+
+    const onBalance = ({ balance }: SocketBalanceUpdate) => {
+      dispatch(setBalance(balance));
+    };
+
+    s?.on("wallet:balance", onBalance);
+
+    return () => {
+      s?.off("wallet:balance", onBalance);
+    };
+  }, [isAuthenticated, dispatch]);
+
   const signin = useCallback((signinResponse: SigninResponse) => {
     Cookies.set(storageKey, signinResponse.accessToken, {
       secure: appConfig.api.cookies.secure,
       sameSite: appConfig.api.cookies.sameSite,
-			paths: '/',
+			path: '/',
     });
 
     const userData: User = {
@@ -45,7 +65,7 @@ export function AuthProvider({ children, ...props }: AuthProviderProps) {
 
   const signout = useCallback(() => {
 		Cookies.remove(storageKey, {
-			paths: '/',
+			path: '/',
 		});
 
     dispatch(clearUser());
