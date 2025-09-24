@@ -35,7 +35,8 @@
 			"description": "Enter the amount you want to deposit into your account.",
 			"amount": "Amount",
 			"success": "Deposit successful!",
-			"submit": "Deposit"
+			"submit": "Deposit",
+			"invalid_amount": "Invalid amount"
 		}
 	},
 	"pages": {

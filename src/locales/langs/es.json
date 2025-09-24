@@ -35,7 +35,8 @@
 			"description": "Ingresa el monto que deseas depositar en tu cuenta.",
 			"amount": "Monto",
 			"success": "¡Depósito realizado con éxito!",
-			"submit": "Depositar"
+			"submit": "Depositar",
+			"invalid_amount": "Monto inválido"
 		}
 	},
 	"pages": {

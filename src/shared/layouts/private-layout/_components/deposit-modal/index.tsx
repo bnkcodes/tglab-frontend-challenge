@@ -1,4 +1,4 @@
-import { ModalClose, Sheet, Typography, IconButton, Button } from '@mui/joy';
+import { ModalClose, Sheet, Typography, IconButton, Button, Stack } from '@mui/joy';
 import { MdAddCard } from 'react-icons/md';
 
 import { useLocale } from '@app/hooks';
@@ -34,13 +34,15 @@ export function DepositModal() {
         >
           <ModalClose variant="plain" sx={{ m: 1 }} />
 
-          <Typography component="h2" level="h4">
-            {t('dashboard.deposit.title')}
-          </Typography>
+					<Stack mb={2}>
+						<Typography component="h2" level="h4">
+							{t('dashboard.deposit.title')}
+						</Typography>
 
-          <Typography textColor="text.secondary">
-						{t('dashboard.deposit.description')}
-          </Typography>
+						<Typography textColor="text.secondary">
+							{t('dashboard.deposit.description')}
+						</Typography>
+					</Stack>
 
 					<Form methods={methods} onSubmit={trigger}>
 						<Form.Input

@@ -1,5 +1,9 @@
 import { z } from 'zod/v3';
 
+import { translateHoF } from '@app/utils';
+
+const t = translateHoF('dashboard.deposit');
+
 export const depositSchema = z.object({
   amount: z.string()
     .transform((v, ctx) => {
@@ -9,7 +13,7 @@ export const depositSchema = z.object({
       if (!normalized || !Number.isFinite(n)) {
         ctx.addIssue({
           code: z.ZodIssueCode.custom,
-          message: 'Valor inválido',
+          message: t('invalid_amount'),
         });
         return z.NEVER;
       }

@@ -1,35 +1,31 @@
+// providers/AuthProvider.tsx
 import { useCallback, useEffect, useState, type ReactNode } from 'react';
-import Cookies from "js-cookie";
-
+import Cookies from 'js-cookie';
 import { connectSocket } from '@shared/api/socket';
-
 import type { User } from '@shared/types/user';
-import type { SigninResponse } from '@shared/types/auth'
+import type { SigninResponse } from '@shared/types/auth';
 import type { SocketBalanceUpdate } from '@shared/types/socket';
-
 import { setUser, clearUser, setBalance } from '@features/user/store';
-
 import { appConfig } from '../configs';
 import { useAppDispatch } from '../store/hooks';
 import { AuthContext, type AuthContextData } from '../contexts/AuthContext';
 
-type AuthProviderProps = {
-  children: ReactNode;
-};
+type AuthProviderProps = { children: ReactNode };
 
 export function AuthProvider({ children, ...props }: AuthProviderProps) {
-  const [isAuthenticated, setIsAuthenticated] = useState<boolean>(false);
+  const dispatch = useAppDispatch();
+  const { storageKey } = appConfig.auth;
 
-	const dispatch = useAppDispatch();
-
-	const { storageKey } = appConfig.auth;
+	const [isAuthenticated, setIsAuthenticated] = useState<boolean>(
+    () => !!Cookies.get(storageKey)
+  );
 
   useEffect(() => {
     const token = Cookies.get(storageKey);
     setIsAuthenticated(!!token);
-  }, []);
+  }, [storageKey]);
 
-	useEffect(() => {
+  useEffect(() => {
     if (!isAuthenticated) return;
 
     const s = connectSocket();
@@ -38,10 +34,10 @@ export function AuthProvider({ children, ...props }: AuthProviderProps) {
       dispatch(setBalance(balance));
     };
 
-    s?.on("wallet:balance", onBalance);
+    s?.on('wallet:balance', onBalance);
 
     return () => {
-      s?.off("wallet:balance", onBalance);
+      s?.off('wallet:balance', onBalance);
     };
   }, [isAuthenticated, dispatch]);
 
@@ -49,7 +45,7 @@ export function AuthProvider({ children, ...props }: AuthProviderProps) {
     Cookies.set(storageKey, signinResponse.accessToken, {
       secure: appConfig.api.cookies.secure,
       sameSite: appConfig.api.cookies.sameSite,
-			path: '/',
+      path: '/',
     });
 
     const userData: User = {
@@ -61,7 +57,7 @@ export function AuthProvider({ children, ...props }: AuthProviderProps) {
 
     dispatch(setUser(userData));
     setIsAuthenticated(true);
-  }, [dispatch]);
+  }, [dispatch, storageKey]);
 
   const signout = useCallback(() => {
 		Cookies.remove(storageKey, {
@@ -70,17 +66,12 @@ export function AuthProvider({ children, ...props }: AuthProviderProps) {
 
     dispatch(clearUser());
     setIsAuthenticated(false);
-  }, [dispatch]);
-
-  const updateUser = useCallback((userData: User) => {
-  	dispatch(setUser(userData));
-  }, [dispatch]);
+  }, [dispatch, storageKey]);
 
   const value: AuthContextData = {
     isAuthenticated,
     signin,
-    signout,
-    updateUser,
+    signout
   };
 
   return (

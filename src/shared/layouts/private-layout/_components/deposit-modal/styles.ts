@@ -10,7 +10,7 @@ export const Modal = styled(MuiModal)`
 `;
 
 export const ActionContainer = styled(MuiBox)`
-	margin-top: 8px;
+	margin-top: 24px;
 	display: flex;
 	gap: 8px;
 

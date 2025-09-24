@@ -1,5 +1,4 @@
 import { Navigate, Outlet } from 'react-router-dom';
-
 import { useAuth } from '@app/hooks/useAuth';
 
 interface AuthGuardProps {
@@ -7,7 +6,7 @@ interface AuthGuardProps {
   children?: React.ReactNode;
 }
 
-export function AuthGuard({ isPrivate = true, children }: AuthGuardProps) {
+export function AuthGuard({ isPrivate, children }: AuthGuardProps) {
   const { isAuthenticated } = useAuth();
 
   if (!isAuthenticated && isPrivate) {
