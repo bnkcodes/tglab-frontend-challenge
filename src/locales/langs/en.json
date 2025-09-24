@@ -68,6 +68,18 @@
 				},
 				"submit": "Create Account"
 			}
+		},
+		"bet": {
+			"title": "Bet",
+			"form": {
+				"amount": "Bet Amount",
+				"submit": "Place Bet",
+				"error": {
+					"invalid_amount": "Invalid amount",
+					"insufficientBalance": "Insufficient balance for this bet.",
+					"failed": "Not this time! Better luck next time."
+				}
+			}
 		}
 	}
 }

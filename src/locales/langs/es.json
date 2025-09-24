@@ -68,6 +68,18 @@
 				},
 				"submit": "Crear cuenta"
 			}
+		},
+		"bet": {
+			"title": "Apostar",
+			"form": {
+				"amount": "Monto de la apuesta",
+				"submit": "Realizar apuesta",
+				"error": {
+					"invalid_amount": "Monto inválido",
+					"insufficientBalance": "Saldo insuficiente para esta apuesta.",
+					"failed": "¡No fue esta vez! Mejor suerte la próxima vez."
+				}
+			}
 		}
 	}
 }

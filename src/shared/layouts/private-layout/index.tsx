@@ -10,7 +10,7 @@ export function PrivateLayout({ children }: PropsWithChildren) {
 	const { t } = useLocale();
 
 	return (
-		<Stack gap={12}>
+		<Stack gap={10}>
 			<Stack gap={3}>
 				<Typography level="h1" color="neutral">
 					{t("dashboard.title")} <Typography color="primary">TG Lab</Typography>
