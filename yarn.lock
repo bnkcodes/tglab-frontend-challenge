@@ -2195,6 +2195,11 @@ react-router@7.9.1, react-router@^7.9.1:
     cookie "^1.0.1"
     set-cookie-parser "^2.6.0"
 
+react-slot-counter@^3.3.1:
+  version "3.3.1"
+  resolved "https://registry.yarnpkg.com/react-slot-counter/-/react-slot-counter-3.3.1.tgz#7ecae9e174863c103eea00b307d4f51608638ad1"
+  integrity sha512-+blRPrKBLDC9GyyGENfyNQYOW3XxkaWmUL1fTtut3slZQS2+yMaAJdvwAyWUYB1eD+6Pd1aZzXFmBxmlSkvhfg==
+
 react-spinners@^0.17.0:
   version "0.17.0"
   resolved "https://registry.yarnpkg.com/react-spinners/-/react-spinners-0.17.0.tgz#d518913e2192afaae76c5b781929ea3bd7b1910e"

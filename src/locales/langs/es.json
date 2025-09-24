@@ -27,6 +27,17 @@
 		"update": "Actualizar",
 		"create": "Crear"
 	},
+	"dashboard": {
+		"title": "Sistema de Apuestas",
+		"balance": "Saldo",
+		"deposit": {
+			"title": "Realizar depósito",
+			"description": "Ingresa el monto que deseas depositar en tu cuenta.",
+			"amount": "Monto",
+			"success": "¡Depósito realizado con éxito!",
+			"submit": "Depositar"
+		}
+	},
 	"pages": {
 		"signin": {
 			"title": "Iniciar sesión",

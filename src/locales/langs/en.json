@@ -27,6 +27,17 @@
 		"update": "Update",
 		"create": "Create"
 	},
+	"dashboard": {
+		"title": "Betting System",
+		"balance": "Balance",
+		"deposit": {
+			"title": "Make a deposit",
+			"description": "Enter the amount you want to deposit into your account.",
+			"amount": "Amount",
+			"success": "Deposit successful!",
+			"submit": "Deposit"
+		}
+	},
 	"pages": {
 		"signin": {
 			"title": "Sign In",

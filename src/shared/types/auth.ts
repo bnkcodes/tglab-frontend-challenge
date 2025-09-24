@@ -1,10 +1,3 @@
-export interface User {
-  id: string;
-  name: string;
-  balance: number;
-  currency: string;
-}
-
 export interface SigninResponse {
   id: string;
   name: string;
