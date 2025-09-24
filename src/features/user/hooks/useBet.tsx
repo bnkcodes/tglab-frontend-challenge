@@ -22,8 +22,6 @@ export function useBet({ onWin, onFail }: UseDepositProps) {
 
   const mutation = useSWRMutation<BetResponse, any, string, BetFormValues>(key, fetcher, {
     onSuccess: (data: BetResponse) => {
-			console.log(data.winAmount != null)
-
 			if (data.winAmount != null) {
 				onWin();
 			} else {

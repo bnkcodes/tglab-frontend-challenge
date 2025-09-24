@@ -1,10 +1,16 @@
-type Status = 'win' | 'lose' | 'canceled';
-
 export interface User {
   id: string;
   name: string;
   balance: number;
   currency: string;
+}
+
+export interface Bet {
+	id: string;
+	amount: number;
+	winAmount?: number;
+	status: number;
+	createdAt: string;
 }
 
 export interface TransactionResponse {
@@ -15,8 +21,7 @@ export interface TransactionResponse {
 
 export interface BetResponse extends Exclude<TransactionResponse, 'transactionId'> {
 	id: string;
-	status: Status;
-	winAmount: number;
+	winAmount?: number;
 	createdAt: string;
 }
 
